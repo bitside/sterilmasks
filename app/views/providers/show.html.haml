@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @provider.name
+%p
+  %b Description:
+  = @provider.description
+%p
+  %b Phone:
+  = @provider.phone
+%p
+  %b Email:
+  = @provider.email
+%p
+  %b Street:
+  = @provider.street
+%p
+  %b Postal code:
+  = @provider.postal_code
+%p
+  %b City:
+  = @provider.city
+
+= link_to 'Edit', edit_provider_path(@provider)
+\|
+= link_to 'Back', providers_path
