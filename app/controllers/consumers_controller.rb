@@ -5,9 +5,9 @@ class ConsumersController < ApplicationController
   # GET /consumers.json
   def index
     if params[:search].present?
-      @consumers = Consumer.search(params[:search])
+      @consumers = Consumer.confirmed.search(params[:search])
     else
-      @consumers = Consumer.all
+      @consumers = Consumer.confirmed.all
     end
   end
 

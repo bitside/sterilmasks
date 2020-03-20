@@ -3,7 +3,8 @@ class Consumer < ApplicationRecord
   after_create -> { UserMailer.with(consumer: self).consumer_confirmation_email.deliver_later }
 
   scope :search, ->(search_term) { where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%")}
-
+  scope :confirmed, -> { where("confirmed_at IS NOT NULL") }
+  
   validates :name, presence: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :postal_code, numericality: true
