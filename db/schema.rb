@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_153239) do
+ActiveRecord::Schema.define(version: 2020_03_20_153234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "consumers", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
+    t.string "type"
     t.string "name"
     t.text "description"
     t.string "phone"
@@ -27,24 +28,9 @@ ActiveRecord::Schema.define(version: 2020_03_20_153239) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
-    t.index ["confirmation_token"], name: "index_consumers_on_confirmation_token", unique: true
-    t.index ["confirmed_at"], name: "index_consumers_on_confirmed_at"
-  end
-
-  create_table "providers", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "phone"
-    t.string "email"
-    t.string "street"
-    t.string "postal_code"
-    t.string "city"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.index ["confirmation_token"], name: "index_providers_on_confirmation_token", unique: true
-    t.index ["confirmed_at"], name: "index_providers_on_confirmed_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["confirmed_at"], name: "index_users_on_confirmed_at"
+    t.index ["type"], name: "index_users_on_type"
   end
 
 end
