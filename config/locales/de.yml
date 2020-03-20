@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 de:
+  mailer:
+    user:
+      confirmation:
+        subject: "E-Mail bestätigen"
+
   views:
     show: Anzeigen
     edit: Editieren
@@ -61,7 +66,6 @@ de:
         street: Straße
         postal_code: Postleitzahl
         city: Stadt
-
       provider:
         <<: *common
       consumer:

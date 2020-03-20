@@ -1,13 +1,13 @@
 class ConsumersController < ApplicationController
-  before_action :set_consumer, only: [:show, :edit, :update, :destroy]
+  before_action :set_consumer, only: [:show, :destroy]
 
   # GET /consumers
   # GET /consumers.json
   def index
     if params[:search].present?
-      @consumers = Consumer.search(params[:search])
+      @consumers = Consumer.confirmed.search(params[:search])
     else
-      @consumers = Consumer.all
+      @consumers = Consumer.confirmed.all
     end
   end
 
@@ -19,10 +19,6 @@ class ConsumersController < ApplicationController
   # GET /consumers/new
   def new
     @consumer = Consumer.new
-  end
-
-  # GET /consumers/1/edit
-  def edit
   end
 
   # POST /consumers
@@ -41,20 +37,6 @@ class ConsumersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /consumers/1
-  # PATCH/PUT /consumers/1.json
-  def update
-    respond_to do |format|
-      if @consumer.update(consumer_params)
-        format.html { redirect_to @consumer, notice: 'Consumer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @consumer }
-      else
-        format.html { render :edit }
-        format.json { render json: @consumer.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /consumers/1
   # DELETE /consumers/1.json
   def destroy
@@ -62,6 +44,16 @@ class ConsumersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to consumers_url, notice: 'Consumer was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def confirm_email
+    respond_to do |format|
+      if @consumer.confirm(params[:confirmation_token])
+        format.html { redirect_to @consumer, notice: 'Successfully confirmed' }
+      else
+        format.html { redirect_to '/', alert: 'Could not be confirmed!' }
+      end
     end
   end
 
