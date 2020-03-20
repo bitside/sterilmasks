@@ -1,32 +1,16 @@
-.u-breadcrumb {
-  @include font-size(xs);
-  @include margin(bottom, 2);
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.u-h1 {
-  @include leading(tight);
-  @include margin(bottom, 6);
-  @include between(0, medium) {
-    @include font-size(xl);
-  }
-  @include respond-to(medium) {
-    @include font-size('3xl');
+.u-title {
+  &.with-spacing {
+    @include margin(bottom, 16);
   }
 }
 
-.u-h3 {
-  @include font-size(base);
-  @include margin(bottom, 2);
-  font-weight: 600;
+.u-subtitle {
+  @include color(font-muted);
+  &.with-spacing {
+    @include margin(bottom, 4);
+  }
 }
 
-.u-h4 {
-  @include font-size(xs);
-  @include tracking(wide);
-  @include margin(bottom, 2);
-  font-weight: 600;
+.u-intro {
+  font-size: 1.2rem;
 }

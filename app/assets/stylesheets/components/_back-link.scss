@@ -1,0 +1,20 @@
+.c-back-link {
+  @include spacing(top, 4);
+  @include spacing(left, 4);
+  @include padding(horizontal, 4);
+  @include padding(vertical, 3);
+  @include background(default);
+  position: fixed;
+  z-index: 1000;
+  font-size: 0.75em;
+  border-radius: 100px;
+
+  &:hover {
+    @include background(font-default);
+    @include color(default);
+  }
+
+  &::before {
+    content: "<- ";
+  }
+}

@@ -1,26 +1,30 @@
-$layout--spacing-properties: (
-  'padding': 'padding',
-  'margin': 'margin',
+$layout--spacing-variants: (
+  flush: 0,
+  tiny: 4,
+  small: 6,
+  large: 12,
+  huge: 16,
 ) !default;
 
-$layout--spacing-directions: (
+$layout--spacing-shorthands: (
   null: null,
-  'top': '-top',
-  'right': '-right',
-  'bottom': '-bottom',
-  'left': '-left',
-  'horizontal': '-left' '-right',
-  'vertical': '-top' '-bottom',
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'x': 'horiontal',
+  'y': 'vertical',
 ) !default;
 
-@each $property-namespace, $property in $layout--spacing-properties {
-  @each $direction-namespace, $direction-rules in $layout--spacing-directions {
-    @each $size-namespace, $size in $layout--spacing {
-      .u-#{$property-namespace}-#{$direction-namespace}-#{$size-namespace} {
-        @each $direction in $direction-rules {
-          #{$property}#{$direction}: $size !important;
-        }
-      }
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  @each $direction-namespace, $direction-rules in $layout--spacing-shorthands {
+    .u-m#{$direction-namespace}-#{$spacing-name} {
+      @include margin($direction-rules, $spacing-value);
+    }
+
+    .u-p#{$direction-namespace}-#{$spacing-name} {
+      @include padding($direction-rules, $spacing-value);
     }
   }
 }

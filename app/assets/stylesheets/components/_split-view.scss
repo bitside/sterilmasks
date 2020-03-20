@@ -5,7 +5,8 @@
   }
   @include respond-to(medium) {
     display: flex;
-    height: 100vh;
+    overflow-y: scroll;
+    min-height: 100vh;
   }
 }
 
@@ -44,8 +45,10 @@
     }
   }
   @include respond-to(medium) {
-    @include padding(horizontal, 12);
-    @include padding(top, 8);
+    @include padding(horizontal, 16);
+    @include padding(top, 12);
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -57,19 +60,15 @@
   margin-left: auto;
 }
 
-.c-split-view__item__title {
-  @include respond-to(medium) {
-    @include font-size(lg);
-  }
-}
-
 .c-split-view__item__body {
   @include between(0, medium) {
     @include padding(null, 8);
     display: none;
   }
   @include respond-to(medium) {
-    @include padding(null, 12);
+    @include padding(horizontal, 16);
+    @include padding(top, 8);
+    @include padding(bottom, 8);
   }
 }
 

@@ -14,12 +14,17 @@
 // Some sane typographic defaults
 body {
   @include font(sans);
-  @include font-size(sm);
   @include leading(normal);
+  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
   text-rendering: optimizeLegibility;
+  font-feature-settings: "tnum" 1;
   @include respond-to(medium) {
-    @include font-size(base);
+    font-size: 16px;
   }
+}
+
+strong {
+  font-weight: 600;
 }

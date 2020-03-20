@@ -1,5 +1,4 @@
 .c-button {
-  @include font-size(sm);
   @include padding(horizontal, 4);
   @include padding(vertical, 3);
   @include border(font-default);
@@ -7,8 +6,9 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 50em;
-  background: transparent;
+  font-size: inherit;
   line-height: 1;
+  background: transparent;
 
   &:hover {
     @include color(default);

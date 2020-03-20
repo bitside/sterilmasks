@@ -3,7 +3,6 @@ $layout--wrapper-width: 1200px !default;
 @mixin wrapper {
   @include clearfix;
   @include padding(horizontal, 6);
-  max-width: $layout--wrapper-width;
   margin-right: auto;
   margin-left: auto;
 

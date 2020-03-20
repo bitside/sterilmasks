@@ -7,9 +7,9 @@ input[type=text] {
   @include border(border-default);
   @include padding(null, 4);
   @include font(sans);
-  @include font-size(sm);
   border-style: solid;
   border-width: 1px;
+  font-size: inherit;
 
   &:focus {
     @include border(border-active);

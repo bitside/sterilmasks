@@ -1,28 +1,38 @@
 .o-site
-  .o-wrapper
-    Hier steht etwas allgemeiner Text über das Vorhaben
+  .o-wrapper.u-mb-large
+    .u-intro
+      %h1.u-subtitle Gemeinsam Ärzten helfen
+      %p Vielen Hausärzten fehlt es zurzeit massiv an Mundschutzen. Wir möchten helfen. Auf dieser Plattform bringen wir Ärzte mit anderen Ärzten zusammen, die Mundschutze abgeben können oder helfen können diese für die Weiterverwendung zu sterilisieren.
 
   .c-split-view
     .c-split-view__item.c-split-view__item--provider
       %header.c-split-view__item__header
-        %h1.c-split-view__item__title= "#{@dashboard.providers_count} Anbieter"
-        .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'c-button')
+        %h1.u-title
+          %strong= @dashboard.providers_count
+          bieten Mundschutze
+        .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'u-link')
       .c-split-view__item__body.c-split-view__item__body--visible
         .c-listing
           %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
-          - @dashboard.latest_providers.each do |provider|
-            = link_to provider_path(provider), class: 'c-listing__item' do
-              .c-listing__item__name= provider.name
-              .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
+          .c-listing__body
+            - @dashboard.latest_providers.each do |provider|
+              - 200.times do
+                = link_to provider_path(provider), class: 'c-listing__item' do
+                  .c-listing__item__name= provider.name
+                  .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
 
     .c-split-view__item.c-split-view__item--consumer
       %header.c-split-view__item__header
-        %h1.c-split-view__item__title= "#{@dashboard.consumers_count} Verbraucher"
-        .c-split-view__item__action= link_to('Als Verbraucher registrieren', new_consumer_url, class: 'c-button')
+        %h1
+          %strong= @dashboard.consumers_count
+          suchen Mundschutze
+        .c-split-view__item__action= link_to('Als Verbraucher registrieren', new_consumer_url, class: 'u-link')
       .c-split-view__item__body
         .c-listing
           %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
-          - @dashboard.latest_consumers.each do |consumer|
-            = link_to consumer_path(consumer), class: 'c-listing__item' do
-              .c-listing__item__name= consumer.name
-              .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
+          .c-listing__body
+            - @dashboard.latest_consumers.each do |consumer|
+              - 200.times do
+                = link_to consumer_path(consumer), class: 'c-listing__item' do
+                  .c-listing__item__name= consumer.name
+                  .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"

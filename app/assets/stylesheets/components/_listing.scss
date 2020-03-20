@@ -3,6 +3,12 @@
   width: 100%;
 }
 
+.c-listing__body {
+  @include respond-to(medium) {
+    @include margin(horizontal, 6, '-');
+  }
+}
+
 .c-listing__item {
   @include padding(vertical, 3);
   @include border(border-default);
@@ -17,13 +23,25 @@
     right: 1em;
     transition: right 0.2s ease-out;
   }
-  
+
   &:hover::after {
     right: 0;
   }
+
+  @include respond-to(medium) {
+    @include padding(horizontal, 6);
+  }
+}
+
+.c-listing__item__name {
+  font-weight: 600;
 }
 
 .c-listing__item__name,
 .c-listing__item__city {
+  overflow: hidden;
   width: 40%;
+  font-size: 0.85em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

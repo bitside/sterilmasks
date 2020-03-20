@@ -20,11 +20,11 @@
 }
 
 .c-form__label {
-  @include font-size(xs);
   @include margin(bottom, 1);
   display: block;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 0.8em;
   letter-spacing: 0.04em;
 
   .field_with_errors & {
@@ -33,7 +33,6 @@
 }
 
 .c-form__hint {
-  @include font-size(sm);
   @include color(font-muted);
   @include margin(bottom, 2);
   display: block;
