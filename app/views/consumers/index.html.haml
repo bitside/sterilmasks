@@ -3,24 +3,16 @@
 %table
   %thead
     %tr
-      %th Name
-      %th Description
-      %th Phone
-      %th Email
-      %th Street
-      %th Postal code
-      %th City
-      %th
-      %th
+      %th= Consumer.human_attribute_name :name
+      %th= Consumer.human_attribute_name :street
+      %th= Consumer.human_attribute_name :postal_code
+      %th= Consumer.human_attribute_name :city
       %th
 
   %tbody
     - @consumers.each do |consumer|
       %tr
         %td= consumer.name
-        %td= consumer.description
-        %td= consumer.phone
-        %td= consumer.email
         %td= consumer.street
         %td= consumer.postal_code
         %td= consumer.city
