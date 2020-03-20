@@ -1,0 +1,7 @@
+.u-visually-hidden {
+  @include visually-hidden;
+}
+
+.u-hidden {
+  display: none;
+}

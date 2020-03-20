@@ -1,0 +1,19 @@
+.o-box {
+  @include clearfix;
+  @include padding(null, $layout--spacing--default);
+  display: block;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-box--flush {
+  padding: 0;
+}
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  .o-box--#{$spacing-name} {
+    @include padding(null, $spacing-value);
+  }
+}

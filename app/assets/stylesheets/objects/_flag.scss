@@ -1,0 +1,72 @@
+.o-flag {
+  display: table;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.o-flag__img,
+.o-flag__body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.o-flag__img {
+  @include padding(right, $layout--spacing--default);
+  width: 1px;
+
+  > img {
+    max-width: none;
+  }
+}
+
+.o-flag__body {
+  width: auto;
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-flag--reverse {
+  direction: rtl;
+
+  > .o-flag__img,
+  > .o-flag__body {
+    direction: ltr;
+  }
+
+  > .o-flag__img {
+    @include padding(left, $layout--spacing--default);
+    padding-right: 0;
+  }
+}
+
+.o-flag--top {
+  > .o-flag__img,
+  > .o-flag__body {
+    vertical-align: top;
+  }
+}
+
+.o-flag--bottom {
+  > .o-flag__img,
+  > .o-flag__body {
+    vertical-align: bottom;
+  }
+}
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  .o-flag--#{$spacing-name} {
+    > .o-flag__img {
+      @include padding(right, $spacing-value);
+    }
+
+    &.o-flag--reverse {
+      > .o-flag__img {
+        @include padding(left, $spacing-value);
+        padding-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+$typography--leading: (
+  'none': 1,
+  'tight': 1.35,
+  'normal': 1.5,
+  'loose': 2,
+) !default;
+
+@each $leading-name, $leading in $typography--leading {
+  .u-leading-#{$leading-name} {
+    @include leading($leading-name);
+  }
+}

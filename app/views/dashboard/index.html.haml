@@ -1,12 +1,27 @@
-%h1 Dashboard#index
-%p Find me in app/views/dashboard/index.html.haml
+.o-wrapper
+  Hier steht etwas allgemeiner Text über das Vorhaben
 
-%h2= "Anbieter (#{@dashboard.providers_count})"
-%p= link_to('Als Anbieter registrieren', new_provider_url)
-- @dashboard.latest_providers.each do |provider|
-  %p= link_to provider.name, provider_path(provider)
+.c-split-view
+  .c-split-view__item.c-split-view__item--provider
+    %header.c-split-view__item__header
+      %h1.c-split-view__item__title= "#{@dashboard.providers_count} Anbieter"
+      .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'c-button')
+    .c-split-view__item__body.c-split-view__item__body--visible
+      .c-listing
+        %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
+        - @dashboard.latest_providers.each do |provider|
+          = link_to provider_path(provider), class: 'c-listing__item' do
+            .c-listing__item__name= provider.name
+            .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
 
-%h2= "Verbraucher (#{@dashboard.consumers_count})"
-%p= link_to('Als Verbraucher registrieren', new_provider_url)
-- @dashboard.latest_consumers.each do |consumer|
-  %p= link_to consumer.name, consumer_path(consumer)
+  .c-split-view__item.c-split-view__item--consumer
+    %header.c-split-view__item__header
+      %h1.c-split-view__item__title= "#{@dashboard.consumers_count} Verbraucher"
+      .c-split-view__item__action= link_to('Als Verbraucher registrieren', new_consumer_url, class: 'c-button')
+    .c-split-view__item__body
+      .c-listing
+        %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
+        - @dashboard.latest_consumers.each do |consumer|
+          = link_to consumer_path(consumer), class: 'c-listing__item' do
+            .c-listing__item__name= consumer.name
+            .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"

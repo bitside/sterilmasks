@@ -1,0 +1,28 @@
+$layout--breakpoints: ('xsmall': 480px, 'small': 640px, 'medium': 768px, 'large': 860px, 'xlarge': 1040px) !default;
+
+// sass-lint:disable indentation
+@mixin respond-to($args...) {
+  @each $name in $args {
+    @if map-has-key($layout--breakpoints, $name) {
+      @media only screen and (min-width: #{map-get($layout--breakpoints, $name)}) {
+        @content;
+      }
+    } @else {
+      @warn 'Unfortunately, no value could be retrieved from `#{$name}`. Please make sure it is defined in `#{$layout--breakpoints}` map.';
+    }
+  }
+}
+
+@mixin between($min, $max) {
+  @if map-has-key($layout--breakpoints, $min) {
+    $min: map-get($layout--breakpoints, $min);
+  }
+
+  @if map-has-key($layout--breakpoints, $max) {
+    $max: map-get($layout--breakpoints, $max);
+  }
+
+  @media only screen and (min-width: $min) and (max-width: $max - 1px) {
+    @content;
+  }
+}

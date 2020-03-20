@@ -1,0 +1,25 @@
+$global--colors: (
+  'default': rgb(0, 0, 0),
+  'muted': rgb(127, 127, 127),
+  'inverted': rgb(255, 255, 255),
+) !default;
+
+@mixin background($color) {
+  $color-definition: map-get($global--colors, $color);
+  background-color: $color-definition;
+}
+
+@mixin color($color) {
+  $color-definition: map-get($global--colors, $color);
+  color: $color-definition;
+}
+
+@mixin border($color) {
+  $color-definition: map-get($global--colors, $color);
+  border-color: $color-definition;
+}
+
+@mixin color-for-attribute($attribute, $color) {
+  $color-definition: map-get($global--colors, $color);
+  #{$attribute}: $color-definition;
+}

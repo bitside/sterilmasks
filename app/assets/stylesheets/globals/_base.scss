@@ -1,0 +1,39 @@
+// sass-lint:disable no-universal-selectors
+html {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  min-height: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include color(font-default);
+  @include background(default);
+  width: 100%;
+
+  &.u-scroll-lock {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+
+  // Distinguishes Alt Texts from surrounding text
+  // if the image cannot be loaded
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,30 @@
+$layout--spacing-directions: (
+  null: null,
+  'top': '-top',
+  'right': '-right',
+  'bottom': '-bottom',
+  'left': '-left',
+  'horizontal': '-left' '-right',
+  'vertical': '-top' '-bottom',
+) !default;
+
+@mixin padding($side, $size, $sign: '') {
+  $direction-rules: map-get($layout--spacing-directions, $side);
+  $spacing-size: map-get($layout--spacing, $size);
+  @each $direction in $direction-rules {
+    padding#{$direction}: #{$sign}#{$spacing-size};
+  }
+}
+
+@mixin margin($side, $size, $sign: '') {
+  $direction-rules: map-get($layout--spacing-directions, $side);
+  $spacing-size: map-get($layout--spacing, $size);
+  @each $direction in $direction-rules {
+    margin#{$direction}: #{$sign}#{$spacing-size};
+  }
+}
+
+@mixin spacing($property, $size, $sign: '') {
+  $spacing-size: map-get($layout--spacing, $size);
+  #{$property}: #{$sign}#{$spacing-size};
+}

@@ -1,0 +1,29 @@
+.c-listing__search {
+  @include margin(bottom, 12);
+  width: 100%;
+}
+
+.c-listing__item {
+  @include padding(vertical, 3);
+  @include border(font-default);
+  position: relative;
+  display: flex;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &::after {
+    content: '->';
+    position: absolute;
+    right: 1em;
+    transition: right 0.2s ease-out;
+  }
+  
+  &:hover::after {
+    right: 0;
+  }
+}
+
+.c-listing__item__name,
+.c-listing__item__city {
+  width: 40%;
+}

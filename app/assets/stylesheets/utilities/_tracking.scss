@@ -1,0 +1,12 @@
+$typography--tracking: (
+  'tight': -0.025em,
+  'normal': 0,
+  'wide': 0.02em,
+  'extra-wide': 0.075em,
+) !default;
+
+@each $tracking-name, $tracking in $typography--tracking {
+  .u-tracking-#{$tracking-name} {
+    @include tracking($tracking-name);
+  }
+}

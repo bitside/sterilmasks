@@ -1,0 +1,42 @@
+.o-pack {
+  @include spacing('border-spacing', $layout--spacing--default);
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-left: 0;
+}
+
+.o-pack__item {
+  display: table-cell;
+  vertical-align: top;
+
+  .o-pack--middle > & {
+    vertical-align: middle;
+  }
+
+  .o-pack--bottom > & {
+    vertical-align: bottom;
+  }
+
+  .o-pack--baseline > & {
+    vertical-align: baseline;
+  }
+}
+
+.o-pack--auto {
+  table-layout: auto;
+}
+
+.o-pack--reverse {
+  direction: rtl;
+
+  > .o-pack__item {
+    direction: ltr;
+  }
+}
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  .o-pack--#{$spacing-name} {
+    @include spacing('border-spacing', $spacing-value);
+  }
+}

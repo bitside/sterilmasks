@@ -1,0 +1,12 @@
+.o-site {
+  position: relative;
+  min-height: 70vh;
+  @include between(0, medium) {
+    @include padding(top, 24);
+    @include padding(bottom, 12);
+  }
+  @include respond-to(medium) {
+    @include padding(top, 32);
+    @include padding(bottom, 32);
+  }
+}

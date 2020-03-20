@@ -1,0 +1,31 @@
+$breakpoint-indicator: \@ !default;
+
+$typography--sizes: (
+  'xs': 0.8rem,
+  'sm': 1rem,
+  'base': 1.2rem,
+  'lg': 1.65rem,
+  'xl': 2rem,
+  '2xl': 4rem,    // 24px
+  '3xl': 1.875rem,  // 30px
+  '4xl': 2.25rem,   // 36px
+  '5xl': 3rem,      // 48px
+  'huge': 5rem,
+  'insane': 15vw
+) !default;
+
+@each $size-name, $size in $typography--sizes {
+  .u-font-#{$size-name} {
+    @include font-size($size-name);
+  }
+
+  @if $layout--render-breakpoints == true {
+    @each $breakpoint in map-keys($layout--breakpoints) {
+      .u-font-#{$size-name}#{$breakpoint-indicator}#{$breakpoint} {
+        @include respond-to($breakpoint) {
+          @include font-size($size-name);
+        }
+      }
+    }
+  }
+}

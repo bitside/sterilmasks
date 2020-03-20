@@ -1,0 +1,95 @@
+.o-layout {
+  @include margin(null, 0);
+  @include margin(left, $layout--spacing--default, '-');
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+}
+
+.o-layout__item {
+  @include padding(left, $layout--spacing--default);
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  .o-layout--#{$spacing-name} {
+    @include margin(left, $spacing-value, '-');
+
+    > .o-layout__item {
+      @include padding(left, $spacing-value);
+    }
+  }
+}
+
+.o-layout--middle {
+  > .o-layout__item {
+    align-items: center;
+  }
+}
+
+.o-layout--bottom {
+  align-items: flex-end;
+}
+
+.o-layout--stretch {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .o-layout__item {
+    display: flex;
+  }
+
+  &.o-layout--center {
+    justify-content: center;
+  }
+
+  &.o-layout--right {
+    justify-content: flex-end;
+  }
+
+  &.o-layout--left {
+    justify-content: flex-start;
+  }
+}
+
+.o-layout--center {
+  text-align: center;
+
+  > .o-layout__item {
+    text-align: left;
+  }
+}
+
+.o-layout--right {
+  text-align: right;
+
+  > .o-layout__item {
+    text-align: left;
+  }
+}
+
+.o-layout--left {
+  text-align: left;
+
+  > .o-layout__item {
+    text-align: left;
+  }
+}
+
+.o-layout--reverse {
+  direction: rtl;
+
+  > .o-layout__item {
+    direction: ltr;
+  }
+}
+
+.o-layout--auto {
+  > .o-layout__item {
+    width: auto;
+  }
+}

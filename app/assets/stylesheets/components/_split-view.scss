@@ -1,0 +1,78 @@
+.c-split-view {
+  @include between(0, medium) {
+    @include padding(top, 12);
+    position: relative;
+  }
+  @include respond-to(medium) {
+    display: flex;
+    height: 100vh;
+  }
+}
+
+.c-split-view__item {
+  @include respond-to(medium) {
+    width: percentage(1 / 2);
+  }
+}
+
+.c-split-view__item--provider {
+  @include background(provider);
+}
+
+.c-split-view__item--consumer {
+  @include background(consumer);
+}
+
+.c-split-view__item__header {
+  display: flex;
+  align-items: center;
+  @include between(0, medium) {
+    @include padding(horizontal, 8);
+    @include spacing(height, 12);
+    position: absolute;
+    top: 0;
+    width: 50%;
+
+    .c-split-view__item--provider & {
+      @include background(provider);
+      left: 0;
+    }
+
+    .c-split-view__item--consumer & {
+      @include background(consumer);
+      right: 0;
+    }
+  }
+  @include respond-to(medium) {
+    @include padding(horizontal, 12);
+    @include padding(top, 8);
+  }
+}
+
+.c-split-view__item__action {
+  @include between(0, medium) {
+    display: none;
+  }
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.c-split-view__item__title {
+  @include respond-to(medium) {
+    @include font-size(lg);
+  }
+}
+
+.c-split-view__item__body {
+  @include between(0, medium) {
+    @include padding(null, 8);
+    display: none;
+  }
+  @include respond-to(medium) {
+    @include padding(null, 12);
+  }
+}
+
+.c-split-view__item__body--visible {
+  display: block;
+}

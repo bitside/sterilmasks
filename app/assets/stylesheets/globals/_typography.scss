@@ -1,0 +1,25 @@
+// Webfont Loading
+@font-face {
+  font-family: 'Personal';
+  font-weight: 400;
+  src: font-url('PersonalSans-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Personal';
+  font-weight: 600;
+  src: font-url('PersonalSans-Medium.woff');
+}
+
+// Some sane typographic defaults
+body {
+  @include font(sans);
+  @include font-size(sm);
+  @include leading(normal);
+  font-style: normal;
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+  text-rendering: optimizeLegibility;
+  @include respond-to(medium) {
+    @include font-size(base);
+  }
+}

@@ -1,0 +1,51 @@
+.u-breadcrumb {
+  @include leading(none);
+  @include tracking(wide);
+  font-weight: 600;
+  @include between(0, medium) {
+    @include font-size(xs);
+    @include margin(bottom, 2);
+  }
+  @include respond-to(medium) {
+    @include font-size(sm);
+    @include margin(bottom, 4);
+  }
+}
+
+.u-title {
+  @include leading(tight);
+  @include between(0, small) {
+    @include font-size('lg');
+  }
+  @include respond-to(small) {
+    @include font-size('3xl');
+  }
+  @include respond-to(large) {
+    @include font-size('4xl');
+  }
+}
+
+.u-h1 {
+  @include leading(tight);
+  @include between(0, medium) {
+    @include font-size(xl);
+    @include margin(bottom, 6);
+  }
+  @include respond-to(medium) {
+    @include font-size('3xl');
+    @include margin(bottom, 8);
+  }
+}
+
+.u-h3 {
+  @include font-size(base);
+  @include margin(bottom, 2);
+  font-weight: 600;
+}
+
+.u-h4 {
+  @include font-size(xs);
+  @include tracking(wide);
+  @include margin(bottom, 2);
+  font-weight: 600;
+}

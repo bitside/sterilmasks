@@ -1,0 +1,15 @@
+@mixin font-size($name) {
+  font-size: map-get($typography--sizes, $name);
+}
+
+@mixin leading($name) {
+  line-height: map-get($typography--leading, $name);
+}
+
+@mixin tracking($name) {
+  letter-spacing: map-get($typography--tracking, $name);
+}
+
+@mixin font($name) {
+  font-family: unquote(map-get($typography--fonts, $name));
+}
