@@ -22,7 +22,7 @@ $layout--breakpoints: (
   large: 1100px,
   xlarge: 1200px) ;
 
-$layout--wrapper-width:             1500px;
+$layout--wrapper-width:             800px;
 $layout--grid-fractions:            1 2 3 4 8;
 $layout--render-offsets:            true;
 $layout--render-breakpoints:        true;
@@ -43,7 +43,7 @@ $typography--sizes: (
 $typography--leading: (
   'none': 1,
   'tight': 1.35,
-  'normal': 1.65,
+  'normal': 1.7,
   'loose': 1.7,
 );
 
@@ -95,6 +95,7 @@ $layout--spacing-variants: (
   flush: 0,
   tiny: 4,
   small: 6,
+  default: 8,
   large: 12,
   huge: 16,
 );

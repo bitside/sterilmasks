@@ -5,10 +5,10 @@
       %p Vielen Hausärzten fehlt es zurzeit massiv an Mundschutzen. Wir möchten helfen. Auf dieser Plattform bringen wir Ärzte mit anderen Ärzten zusammen, die Mundschutze abgeben können oder helfen können diese für die Weiterverwendung zu sterilisieren.
 
   .c-split-view
-    .c-split-view__item.c-split-view__item--provider{ id: 'provider-list' }
-      %header.c-split-view__item__header{ data: { id: 'provider-list' } }
+    .c-split-view__item.c-split-view--visible.c-split-view__item--provider{ id: 'provider-list-body' }
+      %header.c-split-view__item__header{ data: { id: 'provider-list-body' } }
         %h1.u-title
-          %strong= @dashboard.providers_count
+          %strong.c-split-view__item__count= @dashboard.providers_count
           bieten Mundschutze
         .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'u-link')
       .c-split-view__item__body
@@ -20,15 +20,15 @@
                 .c-listing__item__name= provider.name
                 .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
 
-    .c-split-view__item.c-split-view__item--consumer{ id: 'consumer-list' }
-      %header.c-split-view__item__header{ data: { id: 'consumer-list' } }
+    .c-split-view__item.c-split-view__item--consumer{ id: 'consumer-list-body' }
+      %header.c-split-view__item__header{ data: { id: 'consumer-list-body' } }
         %h1
-          %strong= @dashboard.consumers_count
+          %strong.c-split-view__item__count= @dashboard.consumers_count
           suchen Mundschutze
         .c-split-view__item__action= link_to('Als Verbraucher registrieren', new_consumer_url, class: 'u-link')
       .c-split-view__item__body
         .c-listing
-          %input.c-listing__search{ id: "consumer-search", placeholder: "Anbieter durchsuchen", type: "text" }
+          %input.c-listing__search{ id: "consumer-search", placeholder: "Verbraucher durchsuchen", type: "text" }
           .c-listing-group{ id: "consumer-list" }
             - @dashboard.latest_consumers.each do |consumer|
               = link_to consumer_path(consumer), class: 'c-listing__item' do
@@ -64,6 +64,10 @@
   listHeaders.forEach((el) => {
     el.addEventListener('click', (e) => {
       const id = el.getAttribute('data-id');
+      const oldElements = document.querySelectorAll('.c-split-view__item');
+      oldElements.forEach((oldEl) => {
+        oldEl.classList.remove('c-split-view--visible');
+      });
       document.getElementById(id).classList.toggle('c-split-view--visible');
     });
   });

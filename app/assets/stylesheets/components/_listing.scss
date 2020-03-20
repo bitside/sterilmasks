@@ -12,15 +12,18 @@
 .c-listing__item {
   @include padding(vertical, 3);
   @include border(border-default);
+  display: block;
   position: relative;
-  display: flex;
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  width: 100%;
 
   &::after {
     content: '->';
     position: absolute;
+    top: 50%;
     right: 1em;
+    transform: translateY(-50%);
     transition: right 0.2s ease-out;
   }
 
@@ -30,6 +33,7 @@
 
   @include respond-to(medium) {
     @include padding(horizontal, 6);
+    display: flex;
   }
 }
 
@@ -39,9 +43,12 @@
 
 .c-listing__item__name,
 .c-listing__item__city {
+  @include padding(right, 2);
   overflow: hidden;
-  width: 40%;
-  font-size: 0.85em;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @include respond-to(medium) {
+    width: 40%;
+    font-size: 0.85em;
+  }
 }

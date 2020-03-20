@@ -7,21 +7,23 @@ $layout--render-offsets: true !default;
 
 @each $denominator in $layout--grid-fractions {
   @for $numerator from 1 through $denominator {
-    .u-#{$numerator}#{$widths-delimiter}#{$denominator} {
-      width: $numerator / $denominator * 100%;
-    }
-
-    @if $layout--render-offsets == true {
-      .u-push-#{$numerator}#{$widths-delimiter}#{$denominator} {
-        position: relative;
-        right: auto;
-        left: $numerator / $denominator * 100%;
+    @include respond-to(medium) {
+      .u-#{$numerator}#{$widths-delimiter}#{$denominator} {
+        width: $numerator / $denominator * 100%;
       }
 
-      .u-pull-#{$numerator}#{$widths-delimiter}#{$denominator} {
-        position: relative;
-        right: $numerator / $denominator * 100%;
-        left: auto;
+      @if $layout--render-offsets == true {
+        .u-push-#{$numerator}#{$widths-delimiter}#{$denominator} {
+          position: relative;
+          right: auto;
+          left: $numerator / $denominator * 100%;
+        }
+
+        .u-pull-#{$numerator}#{$widths-delimiter}#{$denominator} {
+          position: relative;
+          right: $numerator / $denominator * 100%;
+          left: auto;
+        }
       }
     }
 

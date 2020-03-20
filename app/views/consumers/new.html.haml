@@ -1,6 +1,10 @@
 .c-form.c-form--consumer
   .c-form__color
   .c-form__wrapper
-    %h1.u-h1 Als Verbraucher eintragen
-    .u-text-font-muted Hier könnte noch erklärender Text hin
+    .u-intro
+      %h1.u-title Als Verbraucher von Mundschutzen eintragen
+    .u-text-font-muted
+      Wenn Sie in ihrer Praxis Mundschutze benötigen tragen Sie sich in diese Liste ein. Wenn Ihre Praxis Mundschutze abzugeben hat oder bei der Sterilisation helfen kann, tragen Sie sich in
+      = link_to "diese Liste", new_provider_url, class: "u-link"
+      ein
     = render 'form'

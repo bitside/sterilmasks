@@ -1,40 +1,8 @@
 .u-link {
-  text-decoration: underline;
+  @include underline;
   color: inherit;
 
   &:hover {
-    text-decoration: none;
-  }
-}
-
-.u-link--unobtrusive {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.u-link--obtrusive {
-  @include color(font-accent);
-  text-decoration: none;
-
-  &:hover {
-    @include color(accent-dark);
-  }
-}
-
-.u-link--arrow {
-  position: relative;
-  margin-right: 1.25em;
-  &::after {
-    content: '→';
-    position: absolute;
-    right: -1.25em;
-    transition: right 0.1s ease-out;
-  }
-
-  &:hover::after {
-    right: -2em;
+    @include no-underline;
   }
 }

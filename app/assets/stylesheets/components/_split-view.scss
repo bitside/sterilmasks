@@ -1,7 +1,8 @@
 .c-split-view {
   @include between(0, medium) {
-    @include padding(top, 12);
+    @include padding(top, 40);
     position: relative;
+    width: 100%;
   }
   @include respond-to(medium) {
     display: flex;
@@ -29,15 +30,20 @@
   align-items: center;
   @include between(0, medium) {
     @include padding(horizontal, 8);
-    @include padding(vertical, 6);
+    @include spacing(height, 40);
+    position: absolute;
     cursor: pointer;
+    width: 50%;
+    top: 0;
 
     .c-split-view__item--provider & {
       @include background(provider);
+      left: 0;
     }
 
     .c-split-view__item--consumer & {
       @include background(consumer);
+      right: 0;
     }
   }
   @include respond-to(medium) {
@@ -45,6 +51,13 @@
     @include padding(top, 12);
     position: sticky;
     top: 0;
+  }
+}
+
+.c-split-view__item__count {
+  @include between(0, medium) {
+    display: block;
+    font-size: 1.5em;
   }
 }
 

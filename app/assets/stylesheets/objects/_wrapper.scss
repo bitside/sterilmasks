@@ -15,6 +15,10 @@ $layout--wrapper-width: 1200px !default;
   }
 }
 
+.o-wrapper--limit {
+  max-width: $layout--wrapper-width;
+}
+
 @mixin wrapper-breakout($direction: vertical) {
   @include margin($direction, 6, '-');
 

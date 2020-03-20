@@ -1,6 +1,6 @@
 = render "shared/back"
 .o-site.c-details.c-details--consumer
-  .o-wrapper.u-mt-large
+  .o-wrapper.o-wrapper--limit
     %p#notice= notice
 
     %header
@@ -13,21 +13,23 @@
       %h2.u-subtitle Notiz
       %p= @consumer.description
 
-    .o-layout
-      .o-layout__item.u-1_4
-        .u-subtitle.with-spacing Adresse
-        %p
-          = @consumer.street
-          %br
-          = @consumer.postal_code
-          = @consumer.city
+    .o-box.u-bg-default
+      .o-layout
+        .o-layout__item.u-1_2.u-mb-default
+          .u-subtitle E-Mail
+          %a.u-link{ href: "mailto: #{@consumer.email}" }
+            = @consumer.email
 
-      .o-layout__item.u-1_4
-        .u-subtitle.with-spacing E-Mail
-        %a.u-link{ href: "mailto: #{@consumer.email}" }
-          = @consumer.email
+        .o-layout__item.u-1_2.u-mb-default
+          .u-subtitle Telefon
+          %a.u-link{ href: "tel: #{@consumer.phone}" }
+            = @consumer.phone
 
-      .o-layout__item.u-1_4
-        .u-subtitle.with-spacing Telefon
-        %a.u-link{ href: "tel: #{@consumer.phone}" }
-          = @consumer.phone
+        .o-layout__item.u-1_1
+          .u-subtitle Adresse
+          %p
+            = @consumer.street
+            %br
+            = @consumer.postal_code
+            = @consumer.city
+

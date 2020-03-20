@@ -16,12 +16,10 @@
 
   .c-form--consumer & {
     @include background(consumer);
-    order: 1;
   }
 
   .c-form--provider & {
     @include background(provider);
-    order: 2;
   }
 }
 
@@ -29,14 +27,7 @@
   @include padding(null, 8);
   @include respond-to(medium) {
     @include padding(null, 16);
-    @include margin(top, 12);
     width: 50%;
-    .c-form--consumer & {
-      order: 2;
-    }
-    .c-form--provider & {
-      order: 1;
-    }
   }
 }
 

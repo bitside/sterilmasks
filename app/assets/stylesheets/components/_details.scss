@@ -1,4 +1,5 @@
 .c-details {
+  @include padding(top, 24);
   position: relative;
 }
 

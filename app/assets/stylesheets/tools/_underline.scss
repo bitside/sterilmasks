@@ -2,8 +2,8 @@
   text-decoration: none;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   background-repeat: no-repeat;
-  background-position: 0 85%;
-  background-size: 100% (0.03em * $factor);
+  background-position: 0 99%;
+  background-size: 100% (0.1em * $factor);
 }
 
 @mixin no-underline {
