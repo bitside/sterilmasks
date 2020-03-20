@@ -30,6 +30,7 @@
   @include between(0, medium) {
     @include padding(horizontal, 8);
     @include padding(vertical, 6);
+    cursor: pointer;
 
     .c-split-view__item--provider & {
       @include background(provider);
@@ -65,8 +66,8 @@
     @include padding(top, 8);
     @include padding(bottom, 8);
   }
+  .c-split-view--visible & {
+    display: block;
+  }
 }
 
-.c-split-view__item__body--visible {
-  display: block;
-}

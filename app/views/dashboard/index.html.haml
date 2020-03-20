@@ -5,8 +5,8 @@
       %p Vielen Hausärzten fehlt es zurzeit massiv an Mundschutzen. Wir möchten helfen. Auf dieser Plattform bringen wir Ärzte mit anderen Ärzten zusammen, die Mundschutze abgeben können oder helfen können diese für die Weiterverwendung zu sterilisieren.
 
   .c-split-view
-    .c-split-view__item.c-split-view__item--provider
-      %header.c-split-view__item__header
+    .c-split-view__item.c-split-view__item--provider{ id: 'provider-list' }
+      %header.c-split-view__item__header{ data: { id: 'provider-list' } }
         %h1.u-title
           %strong= @dashboard.providers_count
           bieten Mundschutze
@@ -20,8 +20,8 @@
                 .c-listing__item__name= provider.name
                 .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
 
-    .c-split-view__item.c-split-view__item--consumer
-      %header.c-split-view__item__header
+    .c-split-view__item.c-split-view__item--consumer{ id: 'consumer-list' }
+      %header.c-split-view__item__header{ data: { id: 'consumer-list' } }
         %h1
           %strong= @dashboard.consumers_count
           suchen Mundschutze
@@ -60,7 +60,13 @@
     });
   }
 
-
+  const listHeaders = document.querySelectorAll('.c-split-view__item__header');
+  listHeaders.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const id = el.getAttribute('data-id');
+      document.getElementById(id).classList.toggle('c-split-view--visible');
+    });
+  });
 
   document.getElementById('provider-search').addEventListener('input', window.lodash.debounce((evt) => {
     const val = evt.target.value;

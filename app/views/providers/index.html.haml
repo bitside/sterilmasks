@@ -1,5 +1,9 @@
-.c-listing
-  - @providers.each do |provider|
-    = link_to provider_path(provider), class: 'c-listing__item' do
-      .c-listing__item__name= provider.name
-      .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
+.o-site.o-wrapper.u-bg-provider
+  %h1.u-title.with-spacing
+    %strong= @providers.count
+    bieten Mundschutze an
+  .c-listing
+    - @providers.each do |provider|
+      = link_to provider_path(provider), class: 'c-listing__item' do
+        .c-listing__item__name= provider.name
+        .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
