@@ -4,11 +4,7 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    if params[:search].present?
-      @providers = Provider.confirmed.search(params[:search])
-    else
-      @providers = Provider.confirmed.all
-    end
+    @providers = Provider.confirmed.search(params[:search])
   end
 
   # GET /providers/1

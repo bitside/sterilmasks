@@ -2,7 +2,7 @@ class User < ApplicationRecord
   before_create -> { self.confirmation_token = SecureRandom.urlsafe_base64.to_s }
   after_create -> { UserMailer.with(user: self).confirmation_email.deliver_later }
 
-  scope :search, ->(search_term) { where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%")}
+  scope :search, ->(search_term) { search_term.present? ? where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%") : all }
   scope :confirmed, -> { where("confirmed_at IS NOT NULL") }
 
   validates :name, presence: true
@@ -17,7 +17,7 @@ class User < ApplicationRecord
     if ActiveSupport::SecurityUtils.secure_compare(given_token, expected_token)
       confirm
     else
-      false
+      falsew
     end
   end
 
