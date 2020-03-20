@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   before_create -> { self.confirmation_token = SecureRandom.urlsafe_base64.to_s }
-  after_create -> { UserMailer.with(user: self).confirmation_email.deliver_later }
+  after_create -> { UserMailer.with(user: self).confirmation_email.deliver_later }, if: -> { !self.confirmed? }
 
   scope :search, ->(search_term) { search_term.present? ? where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%") : all }
   scope :confirmed, -> { where("confirmed_at IS NOT NULL") }
@@ -19,6 +19,10 @@ class User < ApplicationRecord
     else
       falsew
     end
+  end
+
+  def confirmed?
+    self.confirmed_at.present?
   end
 
   def confirm
