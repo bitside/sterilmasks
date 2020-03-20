@@ -1,9 +1,12 @@
 %h1 Dashboard#index
 %p Find me in app/views/dashboard/index.html.haml
 
-%h2 Anbieter
+%h2= "Anbieter (#{@dashboard.providers_count})"
 %p= link_to('Als Anbieter registrieren', new_provider_url)
+- @dashboard.latest_providers.each do |provider|
+  %p= link_to provider.name, provider_path(provider)
 
-%h2 Verbraucher
+%h2= "Verbraucher (#{@dashboard.consumers_count})"
 %p= link_to('Als Verbraucher registrieren', new_provider_url)
-
+- @dashboard.latest_consumers.each do |consumer|
+  %p= link_to consumer.name, consumer_path(consumer)
