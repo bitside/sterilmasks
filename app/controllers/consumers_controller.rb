@@ -4,7 +4,11 @@ class ConsumersController < ApplicationController
   # GET /consumers
   # GET /consumers.json
   def index
-    @consumers = Consumer.all
+    if params[:search].present?
+      @providers = Consumer.search(params[:search])
+    else
+      @providers = Consumer.all
+    end
   end
 
   # GET /consumers/1
