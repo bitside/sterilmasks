@@ -8,4 +8,16 @@ class Consumer < ApplicationRecord
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :postal_code, numericality: true
   validates :city, presence: true
+
+  def confirm(given_token)
+    given_token = given_token || ""
+    expected_token = self.confirmation_token || ""
+
+    if ActiveSupport::SecurityUtils.secure_compare(given_token, expected_token)
+      self.confirmed_at = Time.now
+      self.save
+    else
+      false
+    end
+  end
 end

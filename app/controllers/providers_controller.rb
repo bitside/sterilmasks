@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider, only: [:show, :destroy, :confirm_email]
 
   # GET /providers
   # GET /providers.json
@@ -47,8 +47,14 @@ class ProvidersController < ApplicationController
     end
   end
 
-  def confirm
-    
+  def confirm_email
+    respond_to do |format|
+      if @provider.confirm(params[:confirmation_token])
+        format.html { redirect_to @provider, notice: 'Successfully confirmed' }
+      else
+        format.html { redirect_to '/', alert: 'Could not be confirmed!' }
+      end
+    end
   end
 
   private
