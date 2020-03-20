@@ -7,6 +7,6 @@
   %p= link_to provider.name, provider_path(provider)
 
 %h2= "Verbraucher (#{@dashboard.consumers_count})"
-%p= link_to('Als Verbraucher registrieren', new_provider_url)
+%p= link_to('Als Verbraucher registrieren', new_consumer_url)
 - @dashboard.latest_consumers.each do |consumer|
   %p= link_to consumer.name, consumer_path(consumer)
