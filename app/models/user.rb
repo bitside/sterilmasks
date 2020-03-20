@@ -21,6 +21,10 @@ class User < ApplicationRecord
     end
   end
 
+  def confirmed?
+    self.confirmed_at.present?
+  end
+
   def confirm
     self.confirmed_at = Time.now
     self.save
