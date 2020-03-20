@@ -16,10 +16,9 @@
           %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
           .c-listing__body
             - @dashboard.latest_providers.each do |provider|
-              - 200.times do
-                = link_to provider_path(provider), class: 'c-listing__item' do
-                  .c-listing__item__name= provider.name
-                  .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
+              = link_to provider_path(provider), class: 'c-listing__item' do
+                .c-listing__item__name= provider.name
+                .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
 
     .c-split-view__item.c-split-view__item--consumer
       %header.c-split-view__item__header
@@ -32,7 +31,6 @@
           %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
           .c-listing__body
             - @dashboard.latest_consumers.each do |consumer|
-              - 200.times do
-                = link_to consumer_path(consumer), class: 'c-listing__item' do
-                  .c-listing__item__name= consumer.name
-                  .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
+              = link_to consumer_path(consumer), class: 'c-listing__item' do
+                .c-listing__item__name= consumer.name
+                .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
