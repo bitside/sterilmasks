@@ -24,8 +24,8 @@
         %td= consumer.street
         %td= consumer.postal_code
         %td= consumer.city
-        %td= link_to 'Show', consumer
+        %td= link_to t('views.show'), consumer
 
 %br
 
-= link_to 'New Consumer', new_consumer_path
+= link_to t('views.consumer.new'), new_consumer_path
