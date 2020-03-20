@@ -1,0 +1,26 @@
+$layout--spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+$layout--spacing-directions: (
+  null: null,
+  'top': '-top',
+  'right': '-right',
+  'bottom': '-bottom',
+  'left': '-left',
+  'horizontal': '-left' '-right',
+  'vertical': '-top' '-bottom',
+) !default;
+
+@each $property-namespace, $property in $layout--spacing-properties {
+  @each $direction-namespace, $direction-rules in $layout--spacing-directions {
+    @each $size-namespace, $size in $layout--spacing {
+      .u-#{$property-namespace}-#{$direction-namespace}-#{$size-namespace} {
+        @each $direction in $direction-rules {
+          #{$property}#{$direction}: $size !important;
+        }
+      }
+    }
+  }
+}

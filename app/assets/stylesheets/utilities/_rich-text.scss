@@ -1,0 +1,60 @@
+.u-rich-text {
+  p {
+    @include tracking(wide);
+    @include leading(loose);
+    max-width: 35em;
+    hyphens: manual;
+    font-feature-settings: 'onum' 1, 'liga' 1;
+  }
+
+  p + p {
+    @include margin(top, 4);
+  }
+
+  h2 {
+    @include margin(top, 8);
+    @include margin(bottom, 4);
+    @include font-size(lg);
+  }
+
+  h3 {
+    @include margin(top, 8);
+    @include margin(bottom, 4);
+    @include font-size(sm);
+    font-weight: 600;
+  }
+
+  ul, ol {
+    @include margin(vertical, 12);
+    @include margin(horizontal, 4, '-');
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    @include margin(bottom, 4);
+    @include padding(horizontal, 4);
+    @include padding(vertical, 2);
+    position: relative;
+    width: 100%;
+
+    &::before {
+      @include spacing(left, 4);
+      @include spacing(right, 4);
+      @include background(border);
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 1px;
+    }
+
+    @include respond-to(medium) {
+      width: percentage(1 / 2);
+    }
+
+    @include respond-to(large) {
+      width: percentage(1 / 3);
+    }
+  }
+}
+

@@ -1,0 +1,108 @@
+$layout--wrapper-width: 1200px !default;
+
+@mixin wrapper {
+  @include clearfix;
+  @include padding(horizontal, 6);
+  max-width: $layout--wrapper-width;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include respond-to(medium) {
+    @include padding(horizontal, 8);
+  }
+
+  @include respond-to(large) {
+    @include padding(horizontal, 16);
+  }
+}
+
+@mixin wrapper-breakout($direction: vertical) {
+  @include margin($direction, 6, '-');
+
+  @include respond-to(medium) {
+    @include margin($direction, 8, '-');
+  }
+
+  @include respond-to(large) {
+    @include margin($direction, 16, '-');
+
+    // Adds a pseudo element that wraps into infinity
+    // Components need to add style to this.
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      @if $direction == right {
+        right: -100vw;
+      }
+      @if $direction == left {
+        left: -100vw;
+      }
+      bottom: 0;
+      width: 100vw;
+    }
+  }
+}
+
+.o-wrapper {
+  @include wrapper;
+}
+
+.o-wrapper--breakout {
+  @include margin(right, 6, '-');
+
+  @include respond-to(medium) {
+    @include margin(right, 8, '-');
+  }
+
+  @include respond-to(large) {
+    @include margin(right, 16, '-');
+    position: relative;
+
+    // Adds a pseudo element that wraps into infinity
+    // Components need to add style to this.
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -100vw;
+      bottom: 0;
+      width: 100vw;
+    }
+  }
+}
+
+.o-wrapper--breakout-left {
+  @include margin(left, 6, '-');
+
+  @include respond-to(medium) {
+    @include margin(left, 8, '-');
+  }
+
+  @include respond-to(large) {
+    @include margin(left, 16, '-');
+    position: relative;
+
+    // Adds a pseudo element that wraps into infinity
+    // Components need to add style to this.
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -100vw;
+      width: 100vw;
+    }
+  }
+}
+.o-wrapper--reset {
+  @include margin(horizontal, 6, '-');
+
+  @include respond-to(medium) {
+    @include margin(horizontal, 8, '-');
+  }
+
+  @include respond-to(large) {
+    @include margin(horizontal, 16, '-');
+  }
+}

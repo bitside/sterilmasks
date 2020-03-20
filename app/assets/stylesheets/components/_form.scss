@@ -1,0 +1,53 @@
+.c-form--consumer {
+  @include background(consumer);
+}
+
+.c-form--provider {
+  @include background(provider);
+}
+
+.c-form__wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.c-form__container {
+  @include margin(top, 12);
+}
+
+.c-form__row {
+  @include margin(bottom, 6);
+}
+
+.c-form__label {
+  @include font-size(xs);
+  @include margin(bottom, 1);
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  .field_with_errors & {
+    @include color(negative);
+  }
+}
+
+.c-form__hint {
+  @include font-size(sm);
+  @include color(font-muted);
+  @include margin(bottom, 2);
+  display: block;
+}
+
+.c-form__input {
+  width: 100%;
+}
+
+.c-form__actions {
+  text-align: right;
+}
+
+#error_explanation {
+  @include color(negative);
+  @include margin(bottom, 4);
+}

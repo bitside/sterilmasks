@@ -1,0 +1,11 @@
+@mixin underline($factor: 1) {
+  text-decoration: none;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-repeat: no-repeat;
+  background-position: 0 85%;
+  background-size: 100% (0.03em * $factor);
+}
+
+@mixin no-underline {
+  background-image: none;
+}

@@ -1,0 +1,26 @@
+.o-block {
+  display: block;
+  text-align: left;
+}
+
+.o-block__img {
+  @include margin(bottom, $layout--spacing--default);
+
+  @each $spacing-name, $spacing-value in $layout--spacing-variants {
+    .o-block--#{$spacing-name} > & {
+      @include margin(bottom, $spacing-value);
+    }
+  }
+}
+
+.o-block__body {
+  display: block;
+}
+
+.o-block--center {
+  text-align: center;
+}
+
+.o-block--right {
+  text-align: right;
+}

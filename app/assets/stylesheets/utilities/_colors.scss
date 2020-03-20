@@ -1,0 +1,9 @@
+@each $color-name, $color in $global--colors {
+  .u-text-#{$color-name} {
+    color: $color !important;
+  }
+
+  .u-bg-#{$color-name} {
+    background-color: $color !important;
+  }
+}

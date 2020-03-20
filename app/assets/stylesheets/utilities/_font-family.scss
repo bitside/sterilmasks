@@ -1,0 +1,10 @@
+$typography--fonts: (
+  'sans': '"Helvetica Neue", sans-serif',
+  'serif': '"Times New Roman", Times, serif'
+) !default;
+
+@each $font-name, $font in $typography--fonts {
+  .u-font-#{$font-name} {
+    @include font($font-name);
+  }
+}

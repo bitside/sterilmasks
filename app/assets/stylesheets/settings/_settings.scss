@@ -1,0 +1,111 @@
+// COLOR SETTINGS
+// ==============
+$global--colors: (
+  'default': rgb(255, 255, 255),
+  'font-default': rgb(0, 0, 0),
+  'font-muted': rgba(0, 0, 0, 0.5),
+  'border-unobtrusive': rgba(0, 0, 0, 0.07),
+  'border-default': rgba(0, 0, 0, 0.25),
+  'border-active': rgba(0, 0, 0, 0.75),
+  'provider': #D6FFE7,
+  'consumer': #FFF0B5,
+  'negative': red,
+  'negative-muted': #FFE3E3,
+);
+
+// LAYOUT SETTINGS
+// ===============
+$layout--breakpoints: (
+  xsmall: 480px,
+  small: 640px,
+  medium: 920px,
+  large: 1100px,
+  xlarge: 1200px) ;
+
+$layout--wrapper-width:             1500px;
+$layout--grid-fractions:            1 2 3 4 8;
+$layout--render-offsets:            true;
+$layout--render-breakpoints:        true;
+
+// TYPOGRAPHIC SETTINGS
+// ====================
+$typography--sizes: (
+  'xs': 0.75rem,   // 14px
+  'sm': 0.875rem,       // 16px
+  'base': 1rem, // 18px
+  'lg': 1.25rem,     // 24px
+  'xl': 2.625rem,   // 28px
+  '2xl': 2.25rem,   // 36px
+  '3xl': 2.5rem,    // 40px
+  '4xl': 3rem,    // 56px
+);
+
+$typography--leading: (
+  'none': 1,
+  'tight': 1.35,
+  'normal': 1.5,
+  'loose': 1.7,
+);
+
+$typography--tracking: (
+  'tight': -0.01em,
+  'normal': 0,
+  'wide': 0.01em,
+  'extra-wide': 0.075em,
+);
+
+$typography--fonts: (
+  'sans': 'Personal, sans-serif',
+  'serif': '"Suisse-Works", Times, serif',
+);
+
+// SPACING
+// =======
+$layout--spacing: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  8: 2rem,
+  10: 2.5rem,
+  12: 3rem,
+  16: 4rem,
+  20: 5rem,
+  24: 6rem,
+  32: 8rem,
+  40: 10rem,
+  44: 11rem,
+  48: 12rem,
+  64: 16rem,
+  vw: 3vw
+);
+
+// DEFAULT SPACING
+// ===============
+$layout--spacing--default: 8;
+
+// SPACING VARIANTS
+// Determines the spacing modifiers built for objects
+// Name => Key of Spacing Map
+// ==================================================
+$layout--spacing-variants: (
+  flush: 0,
+  tiny: 4,
+  small: 6,
+  large: 12,
+  huge: 16,
+);
+
+$layout--crop-ratios: (
+  "1\\:1"   : (1:1),
+  "2\\:1"   : (2:1),
+  "4\\:3"   : (4:3),
+  "16\\:9"  : (16:9),
+  "21\\:9"  : (19:9),
+  "cover"   : (3:1),
+  "strip"   : (7:1),
+  "portrait": (3:4),
+);

@@ -1,25 +1,38 @@
-%p#notice= notice
+.o-site.c-details.c-details--provider
+  .o-wrapper
+    = link_to "Zurück", root_path, class: "c-details__back"
+    %p#notice= notice
 
-%p
-  %b Name:
-  = @provider.name
-%p
-  %b Description:
-  = @provider.description
-%p
-  %b Phone:
-  = @provider.phone
-%p
-  %b Email:
-  = @provider.email
-%p
-  %b Street:
-  = @provider.street
-%p
-  %b Postal code:
-  = @provider.postal_code
-%p
-  %b City:
-  = @provider.city
+    %header.c-details__header
+      .c-details__title__wrapper 
+        .u-breadcrumb Verbraucher
+        %h1.u-h1= @provider.name
 
-= link_to t('views.back'), providers_path
+    .o-layout
+      .o-layout__item.u-1_2
+        .c-details__card
+          .c-details__card__title Informationen
+          .c-details__card__body
+            .c-details__description= @provider.description
+
+      .o-layout__item.u-1_2
+        .c-details__card
+          .c-details__card__title Kontakt
+          .c-details__card__body
+            .c-details__contact
+              %dl.c-details__contact__item
+                %dt.c-details__contact__value
+                  = @provider.street
+                  %br
+                  = @provider.postal_code
+                  = @provider.city
+                %dd.c-details__contact__label Adresse
+              %dl.c-details__contact__item
+                %dt
+                  %a.c-details__contact__value.u-link{ href: "tel: #{@provider.phone }" }= @provider.phone
+                %dd.c-details__contact__label Telefon
+              %dl.c-details__contact__item
+                %dt
+                  %a.c-details__contact__value.u-link{ href: "tel: #{@provider.email }" }= @provider.email
+                %dd.c-details__contact__label E-Mail
+

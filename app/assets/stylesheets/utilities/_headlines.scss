@@ -1,0 +1,32 @@
+.u-breadcrumb {
+  @include font-size(xs);
+  @include margin(bottom, 2);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.u-h1 {
+  @include leading(tight);
+  @include margin(bottom, 6);
+  @include between(0, medium) {
+    @include font-size(xl);
+  }
+  @include respond-to(medium) {
+    @include font-size('3xl');
+  }
+}
+
+.u-h3 {
+  @include font-size(base);
+  @include margin(bottom, 2);
+  font-weight: 600;
+}
+
+.u-h4 {
+  @include font-size(xs);
+  @include tracking(wide);
+  @include margin(bottom, 2);
+  font-weight: 600;
+}

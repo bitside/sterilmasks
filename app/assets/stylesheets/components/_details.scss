@@ -1,0 +1,78 @@
+.c-details {
+  position: relative;
+}
+
+.c-details--provider {
+  @include background(provider);
+}
+
+.c-details--consumer {
+  @include background(consumer);
+}
+
+.c-details__back {
+  @include spacing(top, 8);
+  @include font-size(sm);
+  position: absolute;
+  opacity: 0.5;
+
+  &::before {
+    @include padding(right, 2);
+    content: '<-';
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.c-details__header {
+  @include margin(bottom, 12);
+  display: flex;
+  align-items: flex-start;
+}
+
+.c-details__description {
+  @include font-size(lg);
+}
+
+.c-details__card {
+  @include background(default);
+}
+
+.c-details__card__title,
+.c-details__card__body {
+  @include padding(vertical, 6);
+  @include padding(horizontal, 8);
+}
+
+.c-details__card__title {
+  @include border(border-unobtrusive);
+  @include font-size(xs);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.c-details__contact__item {
+  @include margin(bottom, 6);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-details__contact__value {
+  @include font-size(base);
+  @include respond-to(medium) {
+    @include font-size(lg);
+  }
+}
+
+.c-details__contact__label {
+  @include color(font-muted);
+  @include font-size(sm);
+}

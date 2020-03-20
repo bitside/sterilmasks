@@ -1,0 +1,46 @@
+.o-media {
+  @include clearfix;
+  display: block;
+}
+
+.o-media__img {
+  @include margin(right, $layout--spacing--default);
+  float: left;
+
+  > img {
+    display: block;
+  }
+}
+
+.o-media__body {
+  display: block;
+  overflow: hidden;
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-media--reverse {
+  > .o-media__img {
+    @include margin(left, $layout--spacing--default);
+    float: right;
+    margin-right: 0;
+  }
+}
+
+@each $spacing-name, $spacing-value in $layout--spacing-variants {
+  .o-media--#{$spacing-name} {
+    > .o-media__img {
+      @include margin(right, $spacing-value);
+    }
+
+    &.o-media--reverse {
+      > .o-media__img {
+        @include margin(left, $spacing-value);
+        margin-right: 0;
+      }
+    }
+  }
+}
