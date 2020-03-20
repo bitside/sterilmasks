@@ -29,19 +29,14 @@
   align-items: center;
   @include between(0, medium) {
     @include padding(horizontal, 8);
-    @include spacing(height, 12);
-    position: absolute;
-    top: 0;
-    width: 50%;
+    @include padding(vertical, 6);
 
     .c-split-view__item--provider & {
       @include background(provider);
-      left: 0;
     }
 
     .c-split-view__item--consumer & {
       @include background(consumer);
-      right: 0;
     }
   }
   @include respond-to(medium) {

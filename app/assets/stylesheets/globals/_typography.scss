@@ -21,6 +21,7 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "tnum" 1;
   @include respond-to(medium) {
+    @include leading(normal);
     font-size: 16px;
   }
 }

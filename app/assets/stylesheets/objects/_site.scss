@@ -1,5 +1,5 @@
 .o-site {
-  @include padding(vertical, 12);
+  @include padding(top, 12);
   position: relative;
   min-height: 100vh;
 }

@@ -11,7 +11,7 @@
           %strong= @dashboard.providers_count
           bieten Mundschutze
         .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'u-link')
-      .c-split-view__item__body.c-split-view__item__body--visible
+      .c-split-view__item__body
         .c-listing
           %input.c-listing__search{ placeholder: "Anbieter durchsuchen", type: "text" }
           .c-listing__body
