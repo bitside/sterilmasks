@@ -5,7 +5,7 @@
 
 .c-listing__item {
   @include padding(vertical, 3);
-  @include border(font-default);
+  @include border(border-default);
   position: relative;
   display: flex;
   border-bottom-style: solid;

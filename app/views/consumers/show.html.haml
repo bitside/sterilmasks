@@ -1,25 +1,38 @@
-%p#notice= notice
+.o-site.c-details.c-details--consumer
+  .o-wrapper
+    = link_to "Zurück", root_path, class: "c-details__back"
+    %p#notice= notice
 
-%p
-  %b Name:
-  = @consumer.name
-%p
-  %b Description:
-  = @consumer.description
-%p
-  %b Phone:
-  = @consumer.phone
-%p
-  %b Email:
-  = @consumer.email
-%p
-  %b Street:
-  = @consumer.street
-%p
-  %b Postal code:
-  = @consumer.postal_code
-%p
-  %b City:
-  = @consumer.city
+    %header.c-details__header
+      .c-details__title__wrapper 
+        .u-breadcrumb Verbraucher
+        %h1.u-h1= @consumer.name
 
-= link_to t('views.back'), consumers_path
+    .o-layout
+      .o-layout__item.u-1_2
+        .c-details__card
+          .c-details__card__title Informationen
+          .c-details__card__body
+            .c-details__description= @consumer.description
+
+      .o-layout__item.u-1_2
+        .c-details__card
+          .c-details__card__title Kontakt
+          .c-details__card__body
+            .c-details__contact
+              %dl.c-details__contact__item
+                %dt.c-details__contact__value
+                  = @consumer.street
+                  %br
+                  = @consumer.postal_code
+                  = @consumer.city
+                %dd.c-details__contact__label Adresse
+              %dl.c-details__contact__item
+                %dt
+                  %a.c-details__contact__value.u-link{ href: "tel: #{@consumer.phone }" }= @consumer.phone
+                %dd.c-details__contact__label Telefon
+              %dl.c-details__contact__item
+                %dt
+                  %a.c-details__contact__value.u-link{ href: "tel: #{@consumer.email }" }= @consumer.email
+                %dd.c-details__contact__label E-Mail
+

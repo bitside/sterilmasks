@@ -2,7 +2,8 @@ table {
   width: 100%;
 }
 
-input {
+textarea,
+input[type=text] {
   @include border(border-default);
   @include padding(null, 4);
   @include font(sans);
@@ -13,5 +14,9 @@ input {
   &:focus {
     @include border(border-active);
     outline: 0;
+  }
+
+  .field_with_errors & {
+    @include border(negative);
   }
 }
