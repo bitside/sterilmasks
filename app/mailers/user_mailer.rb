@@ -1,14 +1,8 @@
 class UserMailer < ApplicationMailer
 
-  def provider_confirmation_email
-    @provider = params[:provider]
+  def confirmation_email
+    @user = params[:user]
 
-    mail(to:@provider.email, subject: t('mailer.user.confirmation.subject'))
-  end
-
-  def consumer_confirmation_email
-    @consumer = params[:consumer]
-
-    mail(to:@consumer.email, subject: t('mailer.user.confirmation.subject'))
+    mail(to:@user.email, subject: t('mailer.user.confirmation.subject'))
   end
 end

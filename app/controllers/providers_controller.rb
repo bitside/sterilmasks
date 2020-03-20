@@ -47,16 +47,6 @@ class ProvidersController < ApplicationController
     end
   end
 
-  def confirm_email
-    respond_to do |format|
-      if @provider.confirm(params[:confirmation_token])
-        format.html { redirect_to @provider, notice: 'Successfully confirmed' }
-      else
-        format.html { redirect_to '/', alert: 'Could not be confirmed!' }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
