@@ -1,23 +1,5 @@
-%h1 Listing consumers
-
-%table
-  %thead
-    %tr
-      %th= Consumer.human_attribute_name :name
-      %th= Consumer.human_attribute_name :street
-      %th= Consumer.human_attribute_name :postal_code
-      %th= Consumer.human_attribute_name :city
-      %th
-
-  %tbody
-    - @consumers.each do |consumer|
-      %tr
-        %td= consumer.name
-        %td= consumer.street
-        %td= consumer.postal_code
-        %td= consumer.city
-        %td= link_to t('views.show'), consumer
-
-%br
-
-= link_to t('views.consumer.new'), new_consumer_path
+.c-listing
+  - @consumers.each do |consumer|
+    = link_to consumer_path(consumer), class: 'c-listing__item' do
+      .c-listing__item__name= consumer.name
+      .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
