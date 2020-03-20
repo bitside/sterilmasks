@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @consumer.name
+%p
+  %b Description:
+  = @consumer.description
+%p
+  %b Phone:
+  = @consumer.phone
+%p
+  %b Email:
+  = @consumer.email
+%p
+  %b Street:
+  = @consumer.street
+%p
+  %b Postal code:
+  = @consumer.postal_code
+%p
+  %b City:
+  = @consumer.city
+
+= link_to 'Edit', edit_consumer_path(@consumer)
+\|
+= link_to 'Back', consumers_path

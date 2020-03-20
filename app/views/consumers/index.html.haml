@@ -1,0 +1,33 @@
+%h1 Listing consumers
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Phone
+      %th Email
+      %th Street
+      %th Postal code
+      %th City
+      %th
+      %th
+      %th
+
+  %tbody
+    - @consumers.each do |consumer|
+      %tr
+        %td= consumer.name
+        %td= consumer.description
+        %td= consumer.phone
+        %td= consumer.email
+        %td= consumer.street
+        %td= consumer.postal_code
+        %td= consumer.city
+        %td= link_to 'Show', consumer
+        %td= link_to 'Edit', edit_consumer_path(consumer)
+        %td= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Consumer', new_consumer_path
