@@ -47,16 +47,6 @@ class ConsumersController < ApplicationController
     end
   end
 
-  def confirm_email
-    respond_to do |format|
-      if @consumer.confirm(params[:confirmation_token])
-        format.html { redirect_to @consumer, notice: 'Successfully confirmed' }
-      else
-        format.html { redirect_to '/', alert: 'Could not be confirmed!' }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_consumer
