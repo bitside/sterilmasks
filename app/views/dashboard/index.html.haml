@@ -56,7 +56,9 @@
       const element = document.createElement('div');
       element.innerHTML = response;
       list.innerHTML = '';
-      list.appendChild(element);
+      [...element.getElementsByClassName('c-listing')[0].children].forEach((child) => {
+        list.appendChild(child);
+      })
     });
   }
 
