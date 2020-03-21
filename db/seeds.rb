@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 7.times do
-  Provider.create(
+  Provider.create!(
     name: Faker::Name.name,
     description: Faker::Quote.matz,
     phone: Faker::PhoneNumber.phone_number,
@@ -22,7 +22,7 @@
 end
 
 42.times do
-  Consumer.create(
+  Consumer.create!(
     name: Faker::Name.name,
     description: Faker::Quote.matz,
     phone: Faker::PhoneNumber.phone_number,
