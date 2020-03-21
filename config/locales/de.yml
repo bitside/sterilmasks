@@ -42,7 +42,11 @@ de:
       not_authorized: Bitte melden Sie sich zuerst über den Link in der E-Mail an.
       confirmed: Ihr Profil wurde erfolgreich bestätigt
       not_confirmed: Ihr Profil konnte leider nicht bestätigt werden
-
+  enumerize:
+    defaults:
+      services:
+        give_away: "Verschenken"
+        sterilisation: "Sterilisieren"
   views:
     show: Anzeigen
     edit: Editieren
@@ -69,6 +73,7 @@ de:
       common: &common
         name: Name
         description: Beschreibung
+        services: Services
         phone: Telefon
         email: E-Mail
         street: Straße
