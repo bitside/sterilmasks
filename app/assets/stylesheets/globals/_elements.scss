@@ -20,3 +20,11 @@ input[type=text] {
     @include border(negative);
   }
 }
+
+input[disabled] {
+  @include background(muted);
+}
+
+textarea {
+  line-height: 1.6;
+}
