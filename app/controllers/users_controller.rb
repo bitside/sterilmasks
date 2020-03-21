@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:confirm_email]
-
+  before_action :set_user, only: [:confirm_email, :manage_account]
 
   def confirm_email
     respond_to do |format|
@@ -10,6 +9,10 @@ class UsersController < ApplicationController
         format.html { redirect_to '/', alert: 'Could not be confirmed!' }
       end
     end
+  end
+
+  def manage_account
+    redirect_to @user
   end
 
   private
