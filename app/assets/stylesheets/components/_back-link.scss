@@ -32,7 +32,9 @@
     margin-left: auto;
     cursor: pointer;
     & > svg {
-      stroke: black
+      stroke: black;
+      stroke-width: 2px;
+      transform: scale(0.8);
     }
 
     &:hover > svg {
