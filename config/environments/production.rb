@@ -62,7 +62,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'sterilmasks.herokuapp.com' }
+  config.action_mailer.default_url_options = { 
+    host: 'gemeinsamaerztenhelfen.de'
+  }
 
   config.action_mailer.delivery_method = :smtp
 
@@ -71,7 +73,7 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'sterilmasks.heroku.com',
+    :domain         => 'gemeinsamaerztenhelfen.de',
     :authentication => :plain,
   }
 
