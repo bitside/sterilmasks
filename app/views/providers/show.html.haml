@@ -42,14 +42,12 @@
       var client = new MapboxClient(mapboxgl.accessToken)
       client.geocodeForward('#{@provider.street} #{@provider.postal_code} #{@provider.city}', function(err, data, res) {
         var coordinates = data.features[0].center;
-
         var map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/schalkamp/ck81ongh50u0h1ilfmlb3pktj',
           center: coordinates,
           zoom: 11,
         });
-
         new mapboxgl.Marker()
           .setLngLat(coordinates)
           .addTo(map);
