@@ -1,5 +1,5 @@
 class ConsumersController < ApplicationController
-  before_action :set_consumer, only: [:show, :destroy]
+  before_action :set_consumer, only: [:show, :edit, :update, :destroy]
 
   # GET /consumers
   # GET /consumers.json
@@ -33,6 +33,24 @@ class ConsumersController < ApplicationController
     end
   end
 
+  # GET /changes/1/edit
+  def edit
+  end
+
+  # PATCH/PUT /changes/1
+  # PATCH/PUT /changes/1.json
+  def update
+    respond_to do |format|
+      if @consumer.update(change_params)
+        format.html { redirect_to @consumer, notice: 'Change was successfully updated.' }
+        format.json { render :show, status: :ok, location: @consumer }
+      else
+        format.html { render :edit }
+        format.json { render json: @consumer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /consumers/1
   # DELETE /consumers/1.json
   def destroy
@@ -52,5 +70,9 @@ class ConsumersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def consumer_params
       params.require(:consumer).permit(:name, :description, :phone, :email, :street, :postal_code, :city, :terms_of_service)
+    end
+
+    def change_params
+      params.require(:consumer).permit(:name, :description, :phone, :street, :postal_code, :city)
     end
 end

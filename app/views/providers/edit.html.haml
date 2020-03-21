@@ -2,3 +2,9 @@
   .c-form__wrapper
     %h1.u-h1 Eintrag bearbeiten
     = render 'form'
+
+= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to t('views.show'), @provider
+\|
+= link_to t('views.back'), providers_path

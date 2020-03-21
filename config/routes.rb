@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :consumers, only: [:index, :new, :create, :show]
-  resources :providers, only: [:index, :new, :create, :show]
+  resources :consumers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :providers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end
