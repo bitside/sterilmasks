@@ -22,8 +22,6 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
 
-    byebug
-
     if @provider.save
       redirect_to @provider, notice: t('messages.user.profile_created')
     else
