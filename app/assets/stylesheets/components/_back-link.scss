@@ -1,11 +1,15 @@
 .c-back-link {
   @include spacing(top, 4);
   @include spacing(left, 4);
+  position: fixed;
+  z-index: 1000;
+}
+
+.c-back-link__item {
   @include padding(horizontal, 4);
   @include padding(vertical, 3);
   @include background(default);
-  position: fixed;
-  z-index: 1000;
+  @include margin(right, 2);
   border-radius: 100px;
   font-size: 0.75em;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
@@ -15,7 +19,7 @@
     @include color(default);
   }
 
-  &::before {
+  &.arrow::before {
     content: "<- ";
   }
 }

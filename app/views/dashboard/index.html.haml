@@ -21,6 +21,8 @@
               = link_to provider_path(provider), class: 'c-listing__item' do
                 .c-listing__item__name= provider.name
                 .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
+          - if @dashboard.providers_count > 10 
+            .c-listing__more= link_to "Alle Anbieter sehen", providers_path, class: "u-link"
 
     .c-split-view__item.c-split-view__item--consumer{ id: 'consumer-list-body' }
       %header.c-split-view__item__header{ data: { id: 'consumer-list-body' } }
@@ -37,6 +39,8 @@
               = link_to consumer_path(consumer), class: 'c-listing__item' do
                 .c-listing__item__name= consumer.name
                 .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
+          - if @dashboard.consumers_count > 10 
+            .c-listing__more= link_to "Alle Verbraucher sehen", consumers_path, class: "u-link"
 
 :javascript
   (function() {
@@ -60,7 +64,7 @@
         const element = document.createElement('div');
         element.innerHTML = response;
         list.innerHTML = '';
-        [...element.getElementsByClassName('c-listing')[0].children].forEach((child) => {
+        [...element.getElementsByClassName('c-listing-group')[0].children].forEach((child) => {
           list.appendChild(child);
         })
       });
