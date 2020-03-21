@@ -1,9 +1,11 @@
-%h1 Editing consumer
+.c-form.c-form--consumer
+  .c-form__color
+    .u-intro
+      %h1.u-title.with-spacing Profil bearbeiten
+    .u-mt-large
+      .u-mb-small= link_to t('views.back'), consumers_path, class: "u-link"
+      = link_to 'Profil löschen', @consumer, method: :delete, data: { confirm: 'Are you sure?' }, class: "u-link"
 
-= render 'form'
-
-= link_to 'Destroy', @consumer, method: :delete, data: { confirm: 'Are you sure?' }
-
-= link_to t('views.show'), @consumer
-\|
-= link_to t('views.back'), consumers_path
+ 
+  .c-form__wrapper
+    = render 'form', mode: 'edit'
