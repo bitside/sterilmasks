@@ -4,7 +4,7 @@
       %h1.u-title.with-spacing Profil bearbeiten
     .u-mt-large
       .u-mb-small= link_to t('views.back'), providers_path, class: "u-link"
-      = link_to 'Profil löschen', @provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "u-link"
+      = link_to 'Profil löschen', @provider, method: :delete, data: { confirm: 'Sind sie sicher? Diese Aktion kann nicht rückgängig gemacht werden!' }, class: "u-link"
 
  
   .c-form__wrapper

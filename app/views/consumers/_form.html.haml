@@ -2,7 +2,7 @@
   = form_for @consumer do |f|
     - if @consumer.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@consumer.errors.count, "error")} prohibited this consumer from being saved:"
+        %h2 Leider sind Ihre Daten unvollständig:
         %ul
           - @consumer.errors.full_messages.each do |message|
             %li= message
