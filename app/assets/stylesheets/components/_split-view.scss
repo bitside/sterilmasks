@@ -6,7 +6,7 @@
   }
   @include respond-to(medium) {
     display: flex;
-    min-height: 50vh;
+    min-height: 100vh;
   }
 }
 

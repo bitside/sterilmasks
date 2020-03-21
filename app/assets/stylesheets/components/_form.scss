@@ -78,10 +78,11 @@
     float: left;
   }
 
-  .field_with_errors &::before {
-    @include border(negative);
+  .field_with_errors & {
+    @include color(negative);
   }
 
+  .c-form__checkbox__input:checked+.field_with_errors &::before, 
   .c-form__checkbox__input:checked+&::before {
     @include background(font-default);
     @include border(font-default);
