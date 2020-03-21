@@ -1,5 +1,26 @@
-.c-listing
-  - @consumers.each do |consumer|
-    = link_to consumer_path(consumer), class: 'c-listing__item' do
-      .c-listing__item__name= consumer.name
-      .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
+= render "shared/back"
+.o-site.o-site--spacing.u-bg-consumer
+  .o-wrapper.o-wrapper--limit
+    .c-listing__header
+      .c-listing__title
+        %h1.u-title
+          %strong= @consumers.count
+          - if params[:search]
+            = "Treffer für »#{params[:search]}«"
+          - else
+          suchen Mundschutze
+      .c-listing__action
+        = link_to "Als Anbieter registrieren", new_consumer_url, class: "u-link"
+    .c-listing
+      %form{ method: 'get' }
+        %input.c-listing__search{ value: params[:search], name: 'search', placeholder: "Anbieter durchsuchen", type: "text", required: true }
+        .c-listing__search__actions
+          - if params[:search]
+            .c-listing__search__reset
+              = link_to "Suche zurücksetzen", consumers_path, class: "u-link"
+          %input.c-button{ type: "submit", value: "Suchen" }
+      .c-listing-group
+        - @consumers.each do |consumer|
+          = link_to consumer_path(consumer), class: 'c-listing__item' do
+            .c-listing__item__name= consumer.name
+            .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"

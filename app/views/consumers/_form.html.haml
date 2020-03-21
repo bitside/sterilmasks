@@ -25,15 +25,19 @@
       = f.text_field :street, class: "c-form__input"
     .c-form__row
       .o-layout
-        .o-layout__item.u-1_3
+        .o-layout__item.u-1_3.u-mb-small
           = f.label :postal_code, class: "c-form__label"
           = f.text_field :postal_code, class: "c-form__input"
         .o-layout__item.u-2_3
           = f.label :city, class: "c-form__label"
           = f.text_field :city, class: "c-form__input"
 
-    .c-form__row
-      = f.label :terms_of_service, class: "c-form__label"
-      = f.check_box :terms_of_service, class: "c-form__input"
+    .c-form__row.u-mt-small
+      .c-form__checkbox
+        = f.check_box :terms_of_service, class: "c-form__checkbox__input"
+        = f.label :terms_of_service, class: "c-form__checkbox__label" do
+          Ich habe die
+          = link_to "AGB", terms_path, class: "u-link", target: "_blank"
+          gelesen und akzeptiere diese
     .c-form__actions
       = f.submit class: "c-button"

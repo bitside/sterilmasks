@@ -1,7 +1,8 @@
 .u-title {
   &.with-spacing {
-    @include margin(bottom, 16);
+    @include margin(bottom, 8);
   }
+
 }
 
 .u-subtitle {
@@ -13,4 +14,9 @@
 
 .u-intro {
   font-size: 1.2rem;
+}
+
+.u-underline {
+  @include underline($factor: 1);
+  display: inline-block;
 }

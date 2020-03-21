@@ -1,10 +1,16 @@
 .c-form.c-form--consumer
   .c-form__color
-  .c-form__wrapper
     .u-intro
-      %h1.u-title Als Verbraucher von Mundschutzen eintragen
-    .u-text-font-muted
-      Wenn Sie in ihrer Praxis Mundschutze benötigen tragen Sie sich in diese Liste ein. Wenn Ihre Praxis Mundschutze abzugeben hat oder bei der Sterilisation helfen kann, tragen Sie sich in
-      = link_to "diese Liste", new_provider_url, class: "u-link"
-      ein
+      %h1.u-title.with-spacing Du benötigst sterile Mundschutze?
+      %p.u-text-font-muted.u-mb-tiny
+        Bitte gib uns einige Details über dich und deine Praxis. So können Praxen in deiner Nähe dich finden und dich kontaktieren, wenn sie dich unterstützen können. Auf der
+        = link_to "Startseite", root_path, class: "u-link"
+        findest du eine durchsuchbare Übersicht über Praxen, die Mundschutze übrigen haben oder diese sterilisieren können und kannst direkt Kontakt zu diesen aufnehmen.
+      %p.u-text-font-muted.u-mb-tiny
+        Wenn deine Praxis Mundschutze übrig hat oder bei der Sterilisation helfen kann, kannst du dich in unsere
+        = link_to "andere Liste", new_provider_url, class: "u-link"
+        eintrage.
+      %p.u-text-font-muted.u-mb-tiny
+        Lasst uns gemeinsam Ärzten helfen!
+  .c-form__wrapper
     = render 'form'

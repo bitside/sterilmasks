@@ -7,10 +7,13 @@
 
 .c-form__color {
   @include between(0, medium) {
-    height: 100px;
+    @include padding(null, 8);
+    @include padding(top, 24);
   }
 
   @include respond-to(medium) {
+    @include padding(null, 16);
+    @include padding(top, 32);
     width: 50%;
   }
 
@@ -27,12 +30,9 @@
   @include padding(null, 8);
   @include respond-to(medium) {
     @include padding(null, 16);
+    @include padding(top, 32);
     width: 50%;
   }
-}
-
-.c-form__container {
-  @include margin(top, 12);
 }
 
 .c-form__row {
@@ -52,10 +52,49 @@
   }
 }
 
+.c-form__checkbox {
+  @include margin(top, 4);
+  display: block;
+}
+
+.c-form__checkbox__input {
+  display: none;
+}
+
+.c-form__checkbox__label {
+  cursor: pointer;
+
+  &::before {
+    @include border(border-default);
+    @include background(default);
+    @include margin(right, 2);
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    content: "";
+    float: left;
+  }
+
+  .field_with_errors &::before {
+    @include border(negative);
+  }
+
+  .c-form__checkbox__input:checked+&::before {
+    @include background(font-default);
+    @include border(font-default);
+    box-shadow: inset 0px 0px 0px 3px #fff;
+  }
+}
+
+
 .c-form__hint {
   @include color(font-muted);
   @include margin(bottom, 2);
   display: block;
+  font-size: 0.85em;
 }
 
 .c-form__input {
@@ -67,6 +106,8 @@
 }
 
 #error_explanation {
+  @include padding(null, 4);
+  @include background(bg-negative);
   @include color(negative);
-  @include margin(bottom, 4);
+  @include margin(bottom, 12);
 }
