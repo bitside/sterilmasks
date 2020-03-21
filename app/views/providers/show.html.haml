@@ -1,6 +1,3 @@
-%script{ src: "https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js" }
-%script{ src: "https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js" }
-%link{ href: "https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css", rel: "stylesheet" }
 = render "shared/back"
 .o-site.c-details.c-details--provider
   .o-wrapper.o-wrapper--limit
@@ -40,7 +37,10 @@
     :javascript
       mapboxgl.accessToken = 'pk.eyJ1Ijoic2NoYWxrYW1wIiwiYSI6ImNrODFtcGtwcTBxdGUzZHJ1bmpmZTR6NWwifQ.3MqLXBAoLpnBl5CvMSQE4Q';
       var client = new MapboxClient(mapboxgl.accessToken)
-      client.geocodeForward('#{@provider.street} #{@provider.postal_code} #{@provider.city}', function(err, data, res) {
+      client.geocodeForward('#{@provider.street} #{@provider.postal_code} #{@provider.city}', {
+          country: 'de',
+          types: 'postcode,address'
+        }, function(err, data, res) {
         var coordinates = data.features[0].center;
         var map = new mapboxgl.Map({
           container: 'map',
