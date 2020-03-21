@@ -3,12 +3,13 @@
   @include padding(vertical, 3);
   @include border(font-default);
   display: inline-block;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   border-radius: 50em;
   font-size: inherit;
   line-height: 1;
   background: transparent;
+  cursor: pointer;
 
   &:hover {
     @include color(default);

@@ -1,9 +1,9 @@
 .c-form.c-form--provider
   .c-form__color
-  .c-form__wrapper
     .u-intro
-      %h1.u-title Als Anbieter von Mundschutzen eintragen
-    .u-text-font-muted
-      Wenn Sie Mundschutze an andere Arztpraxen abgeben können oder bei der Sterilisation von alten Mundschutzen helfen können, tragen Sie sich hier ein. Wenn Sie selbst Mundschutze benötigen, können Sie sich
-      = link_to "hier eintragen.", new_consumer_url, class: "u-link"
+      %h1.u-title.with-spacing Als Anbieter von Mundschutzen eintragen
+      .u-text-font-muted
+        Wenn Sie Mundschutze an andere Arztpraxen abgeben können oder bei der Sterilisation von alten Mundschutzen helfen können, tragen Sie sich hier ein. Wenn Sie selbst Mundschutze benötigen, können Sie sich
+        = link_to "hier eintragen.", new_consumer_url, class: "u-link"
+  .c-form__wrapper
     = render 'form'
