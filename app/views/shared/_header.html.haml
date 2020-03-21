@@ -1,0 +1,36 @@
+.c-back-link
+  = link_to "Gemeinsam Ärzten helfen", root_path, class: "c-back-link__item is-title"
+  .c-back-link__item.toggle.js-toggle
+    %svg{:height => "20", :width => "20"}
+      %path{:d => "M0,2 20,2"}
+      %path{:d => "M0,10 20,10"}
+      %path{:d => "M0,18 20,18"}
+
+
+%nav.c-menu
+  .c-back-link__item.toggle.c-menu__close.js-toggle
+    %svg{:height => "20", :width => "20"}
+      %line{:x1 => "0", :x2 => "20", :y1 => "20", :y2 => "0"}
+      %line{:x1 => "0", :x2 => "20", :y1 => "0", :y2 => "20"}
+
+
+  %ol.u-mb-huge.u-font-lg
+    %li.u-mb-tiny= link_to "Als Anbieter mitmachen", new_provider_path, class: "c-menu__link"
+    %li.u-mb-tiny= link_to "Als Verbraucher registrieren", new_consumer_path, class: "c-menu__link"
+    %li.u-mb-tiny= link_to "Über das Projekt", about_path, class: "c-menu__link"
+
+  %ol
+    %li.u-mb-tiny= link_to "Impressum", impressum_path, class: "c-menu__link"
+    %li.u-mb-tiny= link_to "Datenschutz", privacy_path, class: "c-menu__link"
+    %li.u-mb-tiny= link_to "AGB", terms_path, class: "c-menu__link"
+  
+:javascript
+  (function() {
+    const toggle = document.querySelectorAll('.js-toggle');
+    toggle.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        const menu = document.querySelector('.c-menu');
+        menu.classList.toggle('is-visible');
+      });
+    });
+  })();

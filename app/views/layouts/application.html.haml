@@ -11,4 +11,18 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon/favicon.ico'
   %body
+    - flash.each do |type, msg|
+      .c-flash.js-flash= msg 
+    
+    %header= render "shared/header"
     %main= yield
+
+    :javascript
+      (function() {
+        const flashMessages = document.querySelectorAll('.js-flash');
+        flashMessages.forEach((msg) => {
+          setTimeout(() => {
+            msg.classList.add('hidden');
+          }, 3000);
+        });
+      })();
