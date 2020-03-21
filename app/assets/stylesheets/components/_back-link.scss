@@ -1,8 +1,15 @@
 .c-back-link {
-  @include spacing(top, 4);
-  @include spacing(left, 4);
+  @include padding(null, 4);
+  display: flex;
+  align-items: center;
   position: fixed;
   z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include respond-to(medium) {
+    @include padding(horizontal, 8);
+  }
 }
 
 .c-back-link__item {
@@ -12,7 +19,28 @@
   @include margin(right, 2);
   border-radius: 100px;
   font-size: 0.75em;
+  line-height: 1;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+
+  &.is-title {
+    @include background(font-default);
+    @include color(default);
+  }
+
+  &.toggle {
+    margin-right: 0;
+    margin-left: auto;
+    cursor: pointer;
+    & > svg {
+      stroke: black;
+      stroke-width: 2px;
+      transform: scale(0.8);
+    }
+
+    &:hover > svg {
+      stroke: white;
+    }
+  }
 
   &:hover {
     @include background(font-default);
@@ -22,4 +50,45 @@
   &.arrow::before {
     content: "<- ";
   }
+}
+
+.c-menu {
+  @include background(muted);
+  @include padding(null, 8);
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  transform: translateX(120%);
+  transition: transform 0.35s cubic-bezier(.55,.055,.675,.19);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+   
+  @include between(0, medium) {
+    @include padding(top, 24);
+  }
+
+  @include respond-to(medium) {
+    @include padding(null, 16);
+    width: 50%;
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+}
+
+.c-menu__link {
+  @include no-underline;
+
+  &:hover {
+    @include underline;
+  }
+}
+
+.c-menu__close {
+  @include spacing(top, 4);
+  @include spacing(right, 4);
+  position: absolute;
 }

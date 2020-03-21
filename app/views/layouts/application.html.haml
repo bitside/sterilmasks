@@ -15,4 +15,18 @@
     %link{ href: "https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css", rel: "stylesheet" }
 
   %body
+    - flash.each do |type, msg|
+      .c-flash.js-flash= msg 
+    
+    %header= render "shared/header"
     %main= yield
+
+    :javascript
+      (function() {
+        const flashMessages = document.querySelectorAll('.js-flash');
+        flashMessages.forEach((msg) => {
+          setTimeout(() => {
+            msg.classList.add('hidden');
+          }, 3000);
+        });
+      })();

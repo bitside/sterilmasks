@@ -1,4 +1,3 @@
-= render "shared/back"
 .o-site.c-details.c-details--consumer
   .o-wrapper.o-wrapper--limit
     %p#notice= notice
@@ -33,10 +32,9 @@
             = @consumer.postal_code
             = @consumer.city
 
-    .map{ id: "map" }
+    .c-details__map{ id: "map" }
       :javascript
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2NoYWxrYW1wIiwiYSI6ImNrODFtcGtwcTBxdGUzZHJ1bmpmZTR6NWwifQ.3MqLXBAoLpnBl5CvMSQE4Q';
-
         var client = new MapboxClient(mapboxgl.accessToken)
         client.geocodeForward('#{@consumer.street} #{@consumer.postal_code} #{@consumer.city}', {
           country: 'de',

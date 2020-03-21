@@ -1,8 +1,5 @@
-= render "shared/back"
 .o-site.c-details.c-details--provider
   .o-wrapper.o-wrapper--limit
-    %p#notice= notice
-
     %header
       .u-intro.u-mb-large
         %h1.u-title
@@ -33,7 +30,7 @@
             = @provider.postal_code
             = @provider.city
 
-    .map{ id: "map" }
+    .c-details__map{ id: "map" }
     :javascript
       mapboxgl.accessToken = 'pk.eyJ1Ijoic2NoYWxrYW1wIiwiYSI6ImNrODFtcGtwcTBxdGUzZHJ1bmpmZTR6NWwifQ.3MqLXBAoLpnBl5CvMSQE4Q';
       var client = new MapboxClient(mapboxgl.accessToken)

@@ -1,19 +1,10 @@
 .o-site {
-  @include padding(top, 6);
-  position: relative;
+  @include padding(top, 24);
   min-height: 100vh;
-  @include respond-to(medium) {
-    @include padding(top, 12);
-  }
-
 
   .map {
     margin-top: 4rem;
     height: 317px;
     margin-bottom: 2rem;
   }
-}
-
-.o-site--spacing {
-  @include padding(vertical, 24);
 }

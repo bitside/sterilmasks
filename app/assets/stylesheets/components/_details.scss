@@ -63,3 +63,8 @@
 .c-details__contact__label {
   @include color(font-muted);
 }
+
+.c-details__map {
+  @include margin(bottom, 24);
+  height: 500px;
+}
