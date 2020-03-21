@@ -12,14 +12,18 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true, allow_nil: false, on: :create
 
   def try_confirm(given_token)
-    given_token = given_token || ""
-    expected_token = self.confirmation_token || ""
-
-    if ActiveSupport::SecurityUtils.secure_compare(given_token, expected_token)
+    if matches_token?(given_token)
       confirm
     else
       false
     end
+  end
+
+  def matches_token?(given_token)
+    given_token = given_token || ""
+    expected_token = self.confirmation_token || ""
+
+    ActiveSupport::SecurityUtils.secure_compare(given_token, expected_token)
   end
 
   def confirmed?
@@ -27,6 +31,8 @@ class User < ApplicationRecord
   end
 
   def confirm
+    return true if self.confirmed?
+    
     self.confirmed_at = Time.now
     self.save
   end

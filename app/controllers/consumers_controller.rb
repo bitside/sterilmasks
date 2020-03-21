@@ -35,11 +35,14 @@ class ConsumersController < ApplicationController
 
   # GET /changes/1/edit
   def edit
+    authorize! @consumer
   end
 
   # PATCH/PUT /changes/1
   # PATCH/PUT /changes/1.json
   def update
+    authorize! @consumer
+
     respond_to do |format|
       if @consumer.update(change_params)
         format.html { redirect_to @consumer, notice: 'Change was successfully updated.' }
@@ -54,7 +57,10 @@ class ConsumersController < ApplicationController
   # DELETE /consumers/1
   # DELETE /consumers/1.json
   def destroy
+    authorize! @consumer
+
     @consumer.destroy
+
     respond_to do |format|
       format.html { redirect_to consumers_url, notice: 'Consumer was successfully destroyed.' }
       format.json { head :no_content }

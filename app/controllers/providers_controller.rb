@@ -35,11 +35,14 @@ class ProvidersController < ApplicationController
 
   # GET /changes/1/edit
   def edit
+    authorize! @provider
   end
 
   # PATCH/PUT /changes/1
   # PATCH/PUT /changes/1.json
   def update
+    authorize! @provider
+
     respond_to do |format|
       if @provider.update(change_params)
         format.html { redirect_to @provider, notice: 'Change was successfully updated.' }
@@ -54,7 +57,10 @@ class ProvidersController < ApplicationController
   # DELETE /providers/1
   # DELETE /providers/1.json
   def destroy
+    authorize! @provider
+
     @provider.destroy
+
     respond_to do |format|
       format.html { redirect_to providers_url, notice: 'Provider was successfully destroyed.' }
       format.json { head :no_content }
@@ -62,6 +68,7 @@ class ProvidersController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
       @provider = Provider.find(params[:id])
