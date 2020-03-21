@@ -39,7 +39,7 @@ de:
       profile_created: Bitte bestätigen Sie Ihre E-Mail Adresse, damit ihr Profil veröffentlicht wird
       profile_updated: Ihre Änderungen wurden gespeichert
       profile_deleted: Ihr Profil wurde gelöscht
-      not_auhtorized: Sie dürfen das nicht ;)
+      not_authorized: Bitte melden Sie sich zuerst über den Link in der E-Mail an.
       confirmed: Ihr Profil wurde erfolgreich bestätigt
       not_confirmed: Ihr Profil konnte leider nicht bestätigt werden
 
