@@ -1,3 +1,6 @@
+%script{ src: "https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js" }
+%script{ src: "https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js" }
+%link{ href: "https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css", rel: "stylesheet" }
 = render "shared/back"
 .o-site.c-details.c-details--consumer
   .o-wrapper.o-wrapper--limit
@@ -33,3 +36,25 @@
             = @consumer.postal_code
             = @consumer.city
 
+    .map{ id: "map" }
+      :javascript
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2NoYWxrYW1wIiwiYSI6ImNrODFtcGtwcTBxdGUzZHJ1bmpmZTR6NWwifQ.3MqLXBAoLpnBl5CvMSQE4Q';
+
+        var client = new MapboxClient(mapboxgl.accessToken)
+        client.geocodeForward('#{@consumer.street} #{@consumer.postal_code} #{@consumer.city}', function(err, data, res) {
+          console.log(res);
+          console.log(res.url);
+          console.log(data);
+          var coordinates = data.features[0].center;
+
+          var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/schalkamp/ck81odb5m0u8l1is2bqff7f9j',
+            center: coordinates,
+            zoom: 11,
+          });
+
+          new mapboxgl.Marker()
+          .setLngLat(coordinates)
+          .addTo(map);
+        });

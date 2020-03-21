@@ -2,4 +2,10 @@
   @include padding(top, 12);
   position: relative;
   min-height: 100vh;
+
+  .map {
+    margin-top: 4rem;
+    height: 317px;
+    margin-bottom: 2rem;
+  }
 }
