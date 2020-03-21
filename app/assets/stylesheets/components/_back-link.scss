@@ -65,6 +65,10 @@
   transition: transform 0.35s cubic-bezier(.55,.055,.675,.19);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
    
+  @include between(0, medium) {
+    @include padding(top, 24);
+  }
+
   @include respond-to(medium) {
     @include padding(null, 16);
     width: 50%;

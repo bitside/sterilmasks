@@ -1,0 +1,19 @@
+.c-flash {
+  @include spacing(top, 4);
+  @include padding(vertical, 4);
+  @include padding(horizontal, 8);
+  @include background(default);
+  position: fixed;
+  z-index: 3000;
+  left: 50%;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+  border-radius: 100px;
+  transition: transform 0.35s cubic-bezier(.55,.055,.675,.19);
+  
+  &.hidden {
+    transform: translate(-50%, -200%);
+  }
+}
