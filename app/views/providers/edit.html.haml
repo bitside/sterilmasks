@@ -1,4 +1,12 @@
-.o-site.c-form.c-form--provider
+.c-form.c-form--provider
+  .c-form__color
+    .u-intro
+      %h1.u-title.with-spacing Profil bearbeiten
+    .u-mt-large
+      .u-mb-small= link_to t('views.back'), providers_path, class: "u-link"
+      = link_to 'Profil löschen', @provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "u-link"
+
+ 
   .c-form__wrapper
-    %h1.u-h1 Eintrag bearbeiten
     = render 'form'
+
