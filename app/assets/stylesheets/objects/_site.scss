@@ -5,6 +5,13 @@
   @include respond-to(medium) {
     @include padding(top, 12);
   }
+
+
+  .map {
+    margin-top: 4rem;
+    height: 317px;
+    margin-bottom: 2rem;
+  }
 }
 
 .o-site--spacing {
