@@ -3,3 +3,7 @@
   position: relative;
   min-height: 100vh;
 }
+
+.o-site--spacing {
+  @include padding(vertical, 24);
+}

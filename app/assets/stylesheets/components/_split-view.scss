@@ -6,7 +6,6 @@
   }
   @include respond-to(medium) {
     display: flex;
-    overflow-y: scroll;
     min-height: 100vh;
   }
 }

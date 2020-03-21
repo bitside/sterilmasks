@@ -30,6 +30,7 @@
   @include padding(null, 8);
   @include respond-to(medium) {
     @include padding(null, 16);
+    @include padding(top, 32);
     width: 50%;
   }
 }

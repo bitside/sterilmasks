@@ -2,12 +2,13 @@
   .o-wrapper.u-mb-large
     .u-intro
       %h1.u-subtitle Gemeinsam Ärzten helfen
-      %p Vielen Hausärzten fehlt es zurzeit massiv an Mundschutzen. Wir möchten helfen. Auf dieser Plattform bringen wir Ärzte mit anderen Ärzten zusammen, die Mundschutze abgeben können oder helfen können diese für die Weiterverwendung zu sterilisieren.
+      %p.u-mb-tiny Vielen Hausärzten fehlt es zurzeit massiv an Mundschutzen. Wir möchten helfen. Auf dieser Plattform bringen wir Ärzte mit anderen Ärzten zusammen, die Mundschutze abgeben können oder helfen können diese für die Weiterverwendung zu sterilisieren.
+    = link_to "Wie funktioniert das?", about_path, class: 'u-link'
 
   .c-split-view
     .c-split-view__item.c-split-view--visible.c-split-view__item--provider{ id: 'provider-list-body' }
       %header.c-split-view__item__header{ data: { id: 'provider-list-body' } }
-        %h1.u-title
+        %h1
           %strong.c-split-view__item__count= @dashboard.providers_count
           bieten Mundschutze
         .c-split-view__item__action= link_to('Als Anbieter registrieren', new_provider_url, class: 'u-link')
