@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :postal_code, numericality: true
   validates :city, presence: true
+  validates :terms_of_service, acceptance: true, allow_nil: false
 
   def try_confirm(given_token)
     given_token = given_token || ""

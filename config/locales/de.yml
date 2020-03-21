@@ -66,6 +66,7 @@ de:
         street: Straße
         postal_code: Postleitzahl
         city: Stadt
+        terms_of_service: AGBs
       provider:
         <<: *common
       consumer:

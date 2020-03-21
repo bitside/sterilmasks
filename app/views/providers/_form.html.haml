@@ -32,5 +32,9 @@
         .o-layout__item.u-2_3
           = f.label :city, class: "c-form__label"
           = f.text_field :city, class: "c-form__input"
+
+    .c-form__row
+      = f.label :terms_of_service, class: "c-form__label"
+      = f.check_box :terms_of_service, class: "c-form__input"
     .c-form__actions
       = f.submit class: "c-button"
