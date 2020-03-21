@@ -15,6 +15,7 @@
       .c-split-view__item__body
         .c-listing
           %input.c-listing__search{ id: "provider-search", placeholder: "Anbieter durchsuchen", type: "text" }
+          .c-split-view__item__mobile-action= link_to('Als Anbieter registrieren', new_provider_url, class: 'u-link')
           .c-listing-group{ id: "provider-list" }
             - @dashboard.latest_providers.each do |provider|
               = link_to provider_path(provider), class: 'c-listing__item' do
@@ -30,6 +31,7 @@
       .c-split-view__item__body
         .c-listing
           %input.c-listing__search{ id: "consumer-search", placeholder: "Verbraucher durchsuchen", type: "text" }
+          .c-split-view__item__mobile-action= link_to('Als Verbraucher registrieren', new_consumer_url, class: 'u-link')
           .c-listing-group{ id: "consumer-list" }
             - @dashboard.latest_consumers.each do |consumer|
               = link_to consumer_path(consumer), class: 'c-listing__item' do
@@ -37,50 +39,52 @@
                 .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
 
 :javascript
-  function search(url, listId) {
+  (function() {
+    function search(url, listId) {
 
-    const headers = new Headers();
-    headers.set('Content-Type', 'text/html');
-    headers.set('Accept', 'text/html');
-    const options = {
-        method: 'GET',
-        headers,
-        mode: 'no-cors'
-    };
+      const headers = new Headers();
+      headers.set('Content-Type', 'text/html');
+      headers.set('Accept', 'text/html');
+      const options = {
+          method: 'GET',
+          headers,
+          mode: 'no-cors'
+      };
 
-    fetch(url, options)
-    .then((response) => {
-      return response.text();
-    })
-    .then((response) => {
-      const list = document.getElementById(listId);
-      const element = document.createElement('div');
-      element.innerHTML = response;
-      list.innerHTML = '';
-      [...element.getElementsByClassName('c-listing')[0].children].forEach((child) => {
-        list.appendChild(child);
+      fetch(url, options)
+      .then((response) => {
+        return response.text();
       })
-    });
-  }
-
-  const listHeaders = document.querySelectorAll('.c-split-view__item__header');
-  listHeaders.forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const id = el.getAttribute('data-id');
-      const oldElements = document.querySelectorAll('.c-split-view__item');
-      oldElements.forEach((oldEl) => {
-        oldEl.classList.remove('c-split-view--visible');
+      .then((response) => {
+        const list = document.getElementById(listId);
+        const element = document.createElement('div');
+        element.innerHTML = response;
+        list.innerHTML = '';
+        [...element.getElementsByClassName('c-listing')[0].children].forEach((child) => {
+          list.appendChild(child);
+        })
       });
-      document.getElementById(id).classList.toggle('c-split-view--visible');
+    }
+
+    const listHeaders = document.querySelectorAll('.c-split-view__item__header');
+    listHeaders.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        const id = el.getAttribute('data-id');
+        const oldElements = document.querySelectorAll('.c-split-view__item');
+        oldElements.forEach((oldEl) => {
+          oldEl.classList.remove('c-split-view--visible');
+        });
+        document.getElementById(id).classList.toggle('c-split-view--visible');
+      });
     });
-  });
 
-  document.getElementById('provider-search').addEventListener('input', window.lodash.debounce((evt) => {
-    const val = evt.target.value;
-    search(`providers?search=${val}`, 'provider-list')
-  }), 100);
+    document.getElementById('provider-search').addEventListener('input', window.lodash.debounce((evt) => {
+      const val = evt.target.value;
+      search(`providers?search=${val}`, 'provider-list')
+    }), 100);
 
-  document.getElementById('consumer-search').addEventListener('input', window.lodash.debounce((evt) => {
-    const val = evt.target.value;
-    search(`consumers?search=${val}`, 'consumer-list')
-  }), 100);
+    document.getElementById('consumer-search').addEventListener('input', window.lodash.debounce((evt) => {
+      const val = evt.target.value;
+      search(`consumers?search=${val}`, 'consumer-list')
+    }), 100);
+  })();

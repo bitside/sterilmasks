@@ -1,7 +1,10 @@
 .o-site {
-  @include padding(top, 12);
+  @include padding(top, 6);
   position: relative;
   min-height: 100vh;
+  @include respond-to(medium) {
+    @include padding(top, 12);
+  }
 }
 
 .o-site--spacing {

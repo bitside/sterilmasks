@@ -8,7 +8,7 @@
 .c-form__color {
   @include between(0, medium) {
     @include padding(null, 8);
-    @include padding(top, 16);
+    @include padding(top, 24);
   }
 
   @include respond-to(medium) {
