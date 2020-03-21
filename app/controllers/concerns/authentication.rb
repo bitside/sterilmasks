@@ -25,7 +25,7 @@ module Authentication
   def authorize!(record)
     unless record == current_user
       #redirect to show
-      redirect_to record, alert: 'FORBIDDEN'
+      redirect_to record, alert: t('messages.user.not_authorized')
     end
   end
 

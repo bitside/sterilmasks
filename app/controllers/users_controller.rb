@@ -5,9 +5,9 @@ class UsersController < ApplicationController
       if confirmed?
         login! @user
 
-        redirect_to @user, notice: 'Successfully confirmed'
+        redirect_to @user, notice: t('messages.user.confirmed')
       else
-        redirect_to @user, notice: 'Could not be confirmed!'
+        redirect_to @user, alert: t('messages.user.not_confirmed')
       end
   end
 

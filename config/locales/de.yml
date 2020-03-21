@@ -34,6 +34,14 @@ de:
     user:
       confirmation:
         subject: "E-Mail bestätigen"
+  messages:
+    user:
+      profile_created: Bitte bestätigen Sie Ihre E-Mail Adresse, damit ihr Profil veröffentlicht wird
+      profile_updated: Ihre Änderungen wurden gespeichert
+      profile_deleted: Ihr Profil wurde gelöscht
+      not_auhtorized: Sie dürfen das nicht ;)
+      confirmed: Ihr Profil wurde erfolgreich bestätigt
+      not_confirmed: Ihr Profil konnte leider nicht bestätigt werden
 
   views:
     show: Anzeigen

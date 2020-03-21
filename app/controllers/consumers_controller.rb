@@ -22,14 +22,10 @@ class ConsumersController < ApplicationController
   def create
     @consumer = Consumer.new(consumer_params)
 
-    respond_to do |format|
-      if @consumer.save
-        format.html { redirect_to @consumer, notice: 'Consumer was successfully created.' }
-        format.json { render :show, status: :created, location: @consumer }
-      else
-        format.html { render :new }
-        format.json { render json: @consumer.errors, status: :unprocessable_entity }
-      end
+    if @consumer.save
+      redirect_to @consumer, notice: t('messages.user.profile_created')
+    else
+      render :new
     end
   end
 
@@ -43,14 +39,10 @@ class ConsumersController < ApplicationController
   def update
     authorize! @consumer
 
-    respond_to do |format|
-      if @consumer.update(change_params)
-        format.html { redirect_to @consumer, notice: 'Change was successfully updated.' }
-        format.json { render :show, status: :ok, location: @consumer }
-      else
-        format.html { render :edit }
-        format.json { render json: @consumer.errors, status: :unprocessable_entity }
-      end
+    if @consumer.update(change_params)
+      redirect_to @consumer, notice: t('messages.user.profile_updated')
+    else
+      render :edit
     end
   end
 
@@ -61,10 +53,7 @@ class ConsumersController < ApplicationController
 
     @consumer.destroy
 
-    respond_to do |format|
-      format.html { redirect_to consumers_url, notice: 'Consumer was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_url, notice: t('messages.user.profile_deleted')
   end
 
   private
