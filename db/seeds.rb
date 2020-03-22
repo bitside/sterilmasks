@@ -17,7 +17,7 @@
     city: Faker::Address.city,
     confirmation_token: Faker::Alphanumeric.alphanumeric(number: 15),
     confirmed_at: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    terms_of_service: true
+    privacy: true
   )
 end
 
@@ -32,6 +32,6 @@ end
     city: Faker::Address.city,
     confirmation_token: Faker::Alphanumeric.alphanumeric(number: 15),
     confirmed_at: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    terms_of_service: true
+    privacy: true
   )
 end

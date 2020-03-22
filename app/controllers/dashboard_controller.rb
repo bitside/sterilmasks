@@ -6,9 +6,6 @@ class DashboardController < ApplicationController
   def impressum
   end
 
-  def terms
-  end
-
   def privacy
   end
 

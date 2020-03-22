@@ -74,7 +74,7 @@ de:
         street: Straße
         postal_code: Postleitzahl
         city: Stadt
-        terms_of_service: AGBs
+        privacy: Datenschutzbestimmungen
       provider:
         <<: *common
       consumer:

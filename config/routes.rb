@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   get 'impressum', to: 'dashboard#impressum'
-  get 'terms', to: 'dashboard#terms'
   get 'privacy', to: 'dashboard#privacy'
   get 'about', to: 'dashboard#about'
 
