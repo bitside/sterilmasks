@@ -3,13 +3,20 @@
     %p#notice= notice
 
     %header
-      .u-intro.u-mb-large
+      .u-intro.u-mb-default
         %h1.u-title
           %strong= @provider.name
           bietet Mundschutze
 
+      - if @provider.services.count > 0
+        .u-mb-large
+          %h2.u-subtitle.with-spacing Ich kann Mundschutze…
+          %ul.o-list-inline
+            - @provider.services.each do |s|
+              %li.o-list-inline__item.c-details__service= t("enumerize.defaults.services.#{s}")
+
     .u-mb-large
-      %h2.u-subtitle Notiz
+      %h2.u-subtitle.with-spacing Notiz
       %p= @provider.description
 
     .o-box.u-bg-default

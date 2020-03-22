@@ -1,15 +1,21 @@
 class User < ApplicationRecord
+  extend Enumerize
+
   before_create -> { self.confirmation_token = SecureRandom.urlsafe_base64.to_s }
   after_create -> { UserMailer.with(user: self).confirmation_email.deliver_later }, if: -> { !self.confirmed? }
 
   scope :search, ->(search_term) { search_term.present? ? where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%") : all }
   scope :confirmed, -> { where("confirmed_at IS NOT NULL") }
 
+  serialize :services, Array
+  enumerize :services, in: [:give_away, :sterilisation], multiple: true, predicates: true
+
   validates :name, presence: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :postal_code, numericality: true
   validates :city, presence: true
   validates :terms_of_service, acceptance: true, allow_nil: false, on: :create
+  validates :services, presence: true
 
   def try_confirm(given_token)
     if matches_token?(given_token)
