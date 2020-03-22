@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# ActiveJob Adapter
+gem 'delayed_job_active_record'
+
 # Use haml instead of erb
 gem "haml-rails", "~> 2.0"
 
@@ -37,6 +40,9 @@ gem 'rails_warden'
 
 # support enumerations
 gem 'enumerize'
+#
+# error tracking/performance monitoring
+gem 'appsignal'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
