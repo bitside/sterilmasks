@@ -38,6 +38,9 @@ gem "haml-rails", "~> 2.0"
 # authenticate middleware
 gem 'rails_warden'
 
+# error tracking/performance monitoring
+gem 'appsignal'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
