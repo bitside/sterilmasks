@@ -52,6 +52,14 @@
   }
 }
 
+.c-form__checkbox__row {
+  display: flex;
+
+  .c-form__checkbox {
+    @include margin(right, 8);
+  }
+}
+
 .c-form__checkbox {
   @include margin(top, 4);
   display: flex;

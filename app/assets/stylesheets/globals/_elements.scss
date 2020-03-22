@@ -3,6 +3,7 @@ table {
 }
 
 textarea,
+input[type=email],
 input[type=text] {
   @include border(border-default);
   @include padding(null, 4);
