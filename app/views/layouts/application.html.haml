@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no", :name => "viewport" }
 
-    %title GemeinsamAerztenHelfen.de
+    %title MundschutzTausch.de
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -16,8 +16,8 @@
 
   %body
     - flash.each do |type, msg|
-      .c-flash.js-flash= msg 
-    
+      .c-flash.js-flash= msg
+
     %header= render "shared/header"
     %main= yield
 
