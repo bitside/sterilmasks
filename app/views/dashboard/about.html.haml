@@ -2,7 +2,7 @@
   .o-wrapper.o-wrapper--limit.u-rich-text
     .u-mb-huge
       %h1.u-title.with-spacing.u-underline Gemeinsam stark gegen Corona
-      %p Aktuell leiden viele Hausarztpraxen unter einem massiven Mangel an Hygieneprodukten – allen voran fehlt es an Mundschutz-Artikeln. 
+      %p Aktuell leiden viele Hausarztpraxen unter einem massiven Mangel an Hygieneprodukten – allen voran fehlt es an Mundschutz-Artikeln.
       %p Auf der anderen Seite gibt es viele Zahnarztpraxen mit ungenutzten Vorräten an Mundschutzen. Zudem haben Zahnärzte häufig die Möglichkeit Hygieneprodukte maschinell aufzubereiten und für die Wiederverwendung steril zu machen,
       %p
         %strong Wir möchten helfen, indem wir beide Seiten schnell und effektiv zusammenbringen.
@@ -19,7 +19,7 @@
       %p Wir möchten Zahnärzte, die unterstützen können einfach mit Praxen in Verbindung bringen, die Hilfe benötigen. Hierzu haben wir zwei Listen, in die Praxen sich eintragen können.
 
 
-  .o-wrapper.u-mt-large
+  .o-wrapper.u-mt-large.u-mb-large
     .o-layout
       .o-layout__item.u-1_2.u-mb-large
         .o-box.u-bg-provider.u-rich-text
@@ -38,3 +38,14 @@
             %li Ich benötige Mundschutz-Artikel
             %li Ich kann benutzte Artikel zur Aufarbeitung abgeben
           = link_to "Als Verbraucher eintragen", new_consumer_url, class: "c-button"
+
+  .o-wrapper.o-wrapper--limit.u-rich-text
+    .u-mb-default
+      %h1.u-title.with-spacing.u-underline Wer steckt hinter dem Projekt?
+      %p
+        Angefangen hat das Projekt mit einer Aktion von
+        = link_to "Dr. Christian Leonhardt aus Augsburg.", "https://www.zahnaerzte-am-perlach.de/", target: "_blank", class: "u-link"
+        Nachdem er von befreundeten Hausärzten vom Mangel an Hygieneartikeln erfahren hat, begann er überschüssige Mundschutze zu verschenken und gebrauchte Masken wieder aufzuarbeiten.
+      %p Um dieses Angebot zu erweitern und Anbieter und Verbraucher schnell miteinander zu verbinden entstand dann diese Plattform.
+    %figure.u-mb-large
+      .o-crop= image_tag "dr_leonhardt.jpg"

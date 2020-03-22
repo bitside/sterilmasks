@@ -1,3 +1,25 @@
 .o-site
   .o-wrapper.o-wrapper--limit
-    Impressum
+    %h1.u-title.with-spacing Impressum
+
+    .u-rich-text.u-mb-large
+      %h2.u-subtitle.with-spacing Kontakt
+      %p
+        Peter Mustermann
+        %br
+        Musterstraße 23
+        %br
+        12345 Stadt
+
+    .u-rich-text.u-mb-large
+      %h2.u-subtitle.with-spacing Verantwortlich im Sinne §5 des TMG
+      %p Peter Mustermann, Anschrift wie oben
+
+    .u-rich-text.u-mb-large
+      %h2.u-subtitle.with-spacing Technische Umsetzung der Plattform
+      %p= link_to "bitside GmbH", "https://bitside.de", target: "_blank", class: "u-link"
+
+    .u-rich-text.u-mb-large
+      %h2.u-subtitle.with-spacing Visuelle Gestaltung
+      %p= link_to "und Pohlen GmbH – Büro für visuelle Kommunikation", "https://und-pohlen.de", target: "_blank", class: "u-link"
+
