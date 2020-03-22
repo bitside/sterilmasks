@@ -42,7 +42,13 @@ de:
       not_authorized: Bitte melden Sie sich zuerst über den Link in der E-Mail an.
       confirmed: Ihr Profil wurde erfolgreich bestätigt
       not_confirmed: Ihr Profil konnte leider nicht bestätigt werden
-
+  enumerize:
+    defaults:
+      category:
+        dentist: Zahnarzt
+        family_doctor: Hausarzt
+        internist: Internist
+        other_medical_facility: Andere medizinische Einrichtung
   views:
     show: Anzeigen
     edit: Editieren
@@ -75,6 +81,7 @@ de:
         postal_code: Postleitzahl
         city: Stadt
         terms_of_service: AGBs
+        category: Ich bin
       provider:
         <<: *common
       consumer:

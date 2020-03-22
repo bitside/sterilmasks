@@ -8,6 +8,10 @@
           %strong= @provider.name
           bietet Mundschutze
 
+      .u-mb-large
+        %h2.u-subtitle Ich bin
+        %p= t("enumerize.defaults.category.#{@provider.category}")
+
     .u-mb-large
       %h2.u-subtitle Notiz
       %p= @provider.description

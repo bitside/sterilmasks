@@ -38,6 +38,9 @@ gem "haml-rails", "~> 2.0"
 # authenticate middleware
 gem 'rails_warden'
 
+# support enumerations
+gem 'enumerize'
+#
 # error tracking/performance monitoring
 gem 'appsignal'
 

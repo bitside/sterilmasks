@@ -9,10 +9,10 @@
           - else
           suchen Mundschutze
       .c-listing__action
-        = link_to "Als Anbieter registrieren", new_consumer_url, class: "u-link"
+        = link_to "Als Verbraucher registrieren", new_consumer_url, class: "u-link"
     .c-listing
       %form{ method: 'get' }
-        %input.c-listing__search{ value: params[:search], name: 'search', placeholder: "Anbieter durchsuchen", type: "text", required: true }
+        %input.c-listing__search{ value: params[:search], name: 'search', placeholder: "Verbraucher durchsuchen", type: "text", required: true }
         .c-listing__search__actions
           - if params[:search]
             .c-listing__search__reset

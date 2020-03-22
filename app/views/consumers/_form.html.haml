@@ -14,6 +14,9 @@
       = f.label :description, class: "c-form__label"
       = f.text_area :description, class: "c-form__input", rows: 10
     .c-form__row
+      = f.label :category, class: "c-form__label"
+      .c-form__select= f.select :category, User.category.options, class: "c-form__input", distabled: @consumer.persisted?
+    .c-form__row
       = f.label :phone, class: "c-form__label"
       = f.text_field :phone, class: "c-form__input"
     .c-form__row

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_183347) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
-    t.string "services"
+    t.string "category"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["confirmed_at"], name: "index_users_on_confirmed_at"
     t.index ["type"], name: "index_users_on_type"
