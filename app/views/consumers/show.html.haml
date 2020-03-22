@@ -8,6 +8,13 @@
           %strong= @consumer.name
           sucht Mundschutze
 
+      -# IMHO not needed for consumers
+        .u-mb-large
+          %h2.u-subtitle.with-spacing Ich brauche folgende Hilfe
+          %ul.o-list-inline
+            - @consumer.services.each do |s|
+              %li.o-list-inline__item.c-details__service= t("enumerize.defaults.services.#{s}")
+
     .u-mb-large
       %h2.u-subtitle Notiz
       %p= @consumer.description

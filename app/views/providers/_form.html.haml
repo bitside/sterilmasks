@@ -15,7 +15,7 @@
       = f.text_area :description, class: "c-form__input", rows: 10
       %i.c-form__hint Gib hier bspw. an wann oder wie viele Masken du bereitstellen kannst.
     .c-form__row.u-mb-default
-      = f.label :services, class: "c-form__label"
+      = f.label "Ich kann Mundschutze…", class: "c-form__label"
       .c-form__checkbox__row
         = f.collection_check_boxes :services, User.services.options, :last, :first do |b|
           .c-form__checkbox
