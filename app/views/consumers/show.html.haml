@@ -8,6 +8,11 @@
           %strong= @consumer.name
           sucht Mundschutze
 
+    - if @consumer.category
+      .u-mb-large
+        %h2.u-subtitle Ich bin
+        %p= t("enumerize.defaults.category.#{@consumer.category}")
+
     .u-mb-large
       %h2.u-subtitle Notiz
       %p= @consumer.description

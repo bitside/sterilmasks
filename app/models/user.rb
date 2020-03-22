@@ -7,7 +7,6 @@ class User < ApplicationRecord
   scope :search, ->(search_term) { search_term.present? ? where("name ILIKE :wc OR postal_code LIKE :pf OR city LIKE :wc", wc: "%#{search_term}%", pf: "#{search_term}%") : all }
   scope :confirmed, -> { where("confirmed_at IS NOT NULL") }
 
-  serialize :category, Array
   enumerize :category, in: [:dentist, :family_doctor, :internist, :other_medical_facility]
 
   validates :name, presence: true
@@ -15,8 +14,6 @@ class User < ApplicationRecord
   validates :postal_code, numericality: true
   validates :city, presence: true
   validates :terms_of_service, acceptance: true, allow_nil: false, on: :create
-  validates :category, presence: true
-
 
   def try_confirm(given_token)
     if matches_token?(given_token)
