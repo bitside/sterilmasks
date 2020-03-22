@@ -1,4 +1,4 @@
-.c-back-link {
+.c-header {
   @include padding(null, 4);
   display: flex;
   align-items: center;
@@ -12,19 +12,19 @@
   }
 }
 
-.c-back-link__item {
+.c-header__item {
   @include padding(horizontal, 4);
   @include padding(vertical, 3);
   @include background(default);
   @include margin(right, 2);
   border-radius: 100px;
-  font-size: 0.75em;
   line-height: 1;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 
   &.is-title {
     @include background(font-default);
-    @include color(default);
+    @include color(default)
+    position: relative;
   }
 
   &.toggle {
@@ -64,7 +64,7 @@
   transform: translateX(120%);
   transition: transform 0.35s cubic-bezier(.55,.055,.675,.19);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-   
+
   @include between(0, medium) {
     @include padding(top, 24);
   }
