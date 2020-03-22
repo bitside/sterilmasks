@@ -52,6 +52,40 @@
   }
 }
 
+.c-form__select {
+  position: relative;
+
+  select {
+    width: 100%;
+    position: relative;
+  }
+
+  &::before,
+  &::after {
+    @include background(font-default);
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    width: 6px;
+    height: 1px;
+    border-radius: 2px;
+    transform-origin: 50% 50%;
+    backface-visibility: hidden;
+    pointer-events: none;
+  }
+
+  &::before {
+    right: 15px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    right: 11px;
+    transform: rotate(-45deg);
+  }
+}
+
 .c-form__checkbox {
   @include margin(top, 4);
   display: flex;
