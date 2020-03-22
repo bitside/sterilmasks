@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'accounts@gemeinsamaerztenhelfen.de'
+  default from: 'accounts@mundschutztausch.de'
   
   layout 'mailer'
 end
