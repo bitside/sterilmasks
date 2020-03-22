@@ -38,6 +38,9 @@ gem "haml-rails", "~> 2.0"
 # authenticate middleware
 gem 'rails_warden'
 
+# error tracking/performance monitoring
+gem 'appsignal'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -71,5 +74,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "bugsnag", "~> 6.13"
