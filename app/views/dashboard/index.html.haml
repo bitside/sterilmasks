@@ -3,7 +3,9 @@
     .u-intro
       %h1.u-subtitle Gemeinsam stark gegen Corona
       %p.u-mb-tiny Wir unterstützen Haus- und Allgemeinärzte mit Mundschutzen. Wir haben diese Plattform geschaffen um Ärzte/Zahnärzte mit anderen Ärzten zusammenzubringen, die Mundschutze abgeben oder sterilisieren können, bzw. Mundschutze benötigen.
-    = link_to "Wie funktioniert das?", about_path, class: 'u-link'
+    %ol.o-list-inline
+      %li.o-list-inline__item.u-mr-default= link_to "Wie funktioniert das?", about_path, class: 'u-link'
+      %li.o-list-inline__item.u-mr-default= link_to "Fragen oder Feedback?", "mailto: #{t('general.email')}", class: 'u-link'
 
   .c-split-view
     .c-split-view__item.c-split-view--visible.c-split-view__item--provider{ id: 'provider-list-body' }
@@ -21,7 +23,7 @@
               = link_to provider_path(provider), class: 'c-listing__item' do
                 .c-listing__item__name= provider.name
                 .c-listing__item__city= "#{provider.postal_code} #{provider.city}"
-          - if @dashboard.providers_count > 10 
+          - if @dashboard.providers_count > 10
             .c-listing__more= link_to "Alle Anbieter sehen", providers_path, class: "u-link"
 
     .c-split-view__item.c-split-view__item--consumer{ id: 'consumer-list-body' }
@@ -39,7 +41,7 @@
               = link_to consumer_path(consumer), class: 'c-listing__item' do
                 .c-listing__item__name= consumer.name
                 .c-listing__item__city= "#{consumer.postal_code} #{consumer.city}"
-          - if @dashboard.consumers_count > 10 
+          - if @dashboard.consumers_count > 10
             .c-listing__more= link_to "Alle Verbraucher sehen", consumers_path, class: "u-link"
 
 :javascript
