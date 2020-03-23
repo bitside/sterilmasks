@@ -19,7 +19,7 @@
       %p Wir möchten Zahnärzte, die unterstützen können einfach mit Praxen in Verbindung bringen, die Hilfe benötigen. Hierzu haben wir zwei Listen, in die Praxen sich eintragen können.
 
 
-  .o-wrapper.u-mt-large.u-mb-large
+  .o-wrapper.u-mt-large
     .o-layout
       .o-layout__item.u-1_2.u-mb-large
         .o-box.u-bg-provider.u-rich-text
@@ -38,6 +38,12 @@
             %li Ich benötige Mundschutz-Artikel
             %li Ich kann benutzte Artikel zur Aufarbeitung abgeben
           = link_to "Als Verbraucher eintragen", new_consumer_url, class: "c-button"
+
+  .o-wrapper.o-wrapper--limit.u-mb-huge
+    .o-box.u-bg-muted.u-rich-text
+      .u-intro
+        %h2.u-subtitle.with-spacing Das Projekt mit einer Spende unterstützen
+      = link_to "Auf GoFundMe spenden", "https://www.gofundme.com/f/gemeinsam-arzten-helfen?utm_source=customer&utm_medium=copy_link&utm_campaign=p_cf+share-flow-1", class: "c-button", target: "_blank"
 
   .o-wrapper.o-wrapper--limit.u-rich-text
     .u-mb-default
