@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 de:
+  general:
+    name: Mundschutztausch
+    email: fragen@mundschutztausch.de
   mailer:
     user:
       confirmation:
@@ -59,10 +62,10 @@ de:
       update: Speichern
   activerecord:
     models:
-      provider: 
+      provider:
         one: Anbieter
         other: Anbieter
-      consumer: 
+      consumer:
         one: Verbraucher
         other: Verbraucher
     attributes:
@@ -79,4 +82,4 @@ de:
         <<: *common
       consumer:
         <<: *common
-        
+
