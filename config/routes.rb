@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'impressum', to: 'dashboard#impressum'
   get 'privacy', to: 'dashboard#privacy'
   get 'about', to: 'dashboard#about'
+  get 'faq', to: 'dashboard#faq'
 
   resources :users, only: [] do
     member do
