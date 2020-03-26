@@ -20,6 +20,18 @@
 
     %header= render "shared/header"
     %main= yield
+    %footer.o-wrapper.u-py-large.u-text-font-muted.u-bg-muted
+      %h2.u-font-xs.u-mb-small Eine Kooperation von
+      %ol.c-logo-list
+        %li.c-logo-list__item.dentist
+          = link_to 'https://www.zahnaerzte-am-perlach.de/', target: '_blank' do
+            = image_tag('logos/zahnaerzte-am-perlach.svg')
+        %li.c-logo-list__item
+          = link_to 'https://www.bitside.de/', target: '_blank' do
+            = image_tag('logos/bitside.svg')
+        %li.c-logo-list__item
+          = link_to 'https://www.und-pohlen.de/', target: '_blank' do
+            = image_tag('logos/und-pohlen.svg')
 
     :javascript
       (function() {

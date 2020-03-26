@@ -1,0 +1,37 @@
+.c-logo-list {
+  @include background(muted);
+  @include respond-to(medium) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.c-logo-list__item {
+  max-width: 150px;
+  @include between(0, medium) {
+    @include margin(bottom, 8);
+  }
+  @include respond-to(medium) {
+    @include margin(right, 8);
+    max-width: 130px;
+  }
+  @include respond-to(large) {
+    @include margin(right, 16);
+  }
+
+  // Das Zahnarztlogo muss größer, damit die Haarlinien nicht wegbrechen
+  // Wenn der ein neues und stabileres Logo und Erscheinungsbild braucht
+  // soll er sich gerne melden.
+  &.dentist {
+    max-width: 180px;
+  }
+
+  & > a {
+    opacity: 0.5;
+    transition: opacity 0.25s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
