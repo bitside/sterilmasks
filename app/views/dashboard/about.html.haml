@@ -43,7 +43,11 @@
     .u-mb-default
       %h1.u-title.with-spacing.u-underline Du hast Fragen oder Feedback?
       %p
-        Wir freuen uns über Fragen, Feedback und Anmerkungen zu unserem Projekt. Du erreichst uns per E-Mail unter
+        Wir freuen uns über Fragen, Feedback und Anmerkungen zu unserem Projekt.
+      %p
+        Antworten zu häufig gestellen Fragen findest du in unseren 
+        = link_to "FAQs", faq_path, class: "u-link"
+        oder du erreichst uns auch per E-Mail unter
         = link_to t('general.email'), "mailto: #{t('general.email')}", class: "u-link"
 
   .o-wrapper.o-wrapper--limit.u-rich-text
